@@ -2,6 +2,9 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
+import ru.se.ifmo.lab5.utils.Reader;
+
+import java.util.LinkedList;
 
 public class MaxByMeleeWeapon extends Command {
     CommandManager commandManager;
@@ -17,6 +20,8 @@ public class MaxByMeleeWeapon extends Command {
 
     @Override
     void execute(CollectionManager collectionManager, String[] args) {
+        Reader reader = new Reader();
+        LinkedList<String[]> collectionElem = reader.readCSV(args);
 
     }
 

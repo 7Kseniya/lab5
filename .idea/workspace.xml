@@ -5,52 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[SAVE] save modification">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Clear.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/FilterByHealth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Insert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/PrintAscending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveByKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveGreaterKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveLowerKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Save.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Show.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Update.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/AstartesCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Chapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Coordinates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/MeleeWeapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/SpaceMarine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/exceptions/InvalidCollectionElemId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/exceptions/InvalidValueException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/exceptions/NumberOfArgsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandInvoker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandRegistrar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/IOHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Reader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +50,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -152,7 +110,7 @@
       <workItem from="1679311481234" duration="154000" />
       <workItem from="1679391333996" duration="81984000" />
       <workItem from="1680209924931" duration="49736000" />
-      <workItem from="1680699986910" duration="4894000" />
+      <workItem from="1680699986910" duration="9213000" />
     </task>
     <servers />
   </component>

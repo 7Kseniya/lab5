@@ -28,13 +28,12 @@ public class Writer {
                 ObjectOutputStream bytesToObj = new ObjectOutputStream(bytes);
                 bytesToObj.writeObject(collectionManager.getCollection());
 
-                String csvData = bytes.toString();
-                CSVwriter.writeAll(new CSVReader(new StringReader(csvData)).readAll());
+                String[] csvData = new String[]{bytes.toString()};
+
+                CSVwriter.writeNext(csvData);
             } catch (FileNotFoundException e) {
                 IOHandler.println("file not found");
 
-            } catch (CsvException e) {
-                IOHandler.println("something went wrong");
             }
         }
     }
