@@ -1,48 +1,56 @@
 package ru.se.ifmo.lab5.utils;
 
-import java.util.HashMap;
-import java.util.LinkedList;
+import ru.se.ifmo.lab5.commands.Command;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class CommandManager {
-    public CommandManager(LinkedList<String> commandHistory) {
+
+
+    public static List<Class<? extends Command>> getClasses() {
+        List<Class<? extends Command>> commands = new ArrayList<>();
+        String packageName = "ru.se.ifmo.lab5.commands";
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        Package pkg = Package.getPackage(packageName);
+        Set<Class<?>> classes;
+
+        {
+            try {
+                classes = new HashSet<>(Arrays.asList(classLoader.loadClass(packageName).getDeclaredClasses()));
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        for(Class<?> clazz : classes) {
+            if (Command.class.isAssignableFrom(clazz)) {
+                commands.add(clazz.asSubclass(Command.class));
+            }
+        }
+        return commands;
+    }
+    /*public CommandManager(LinkedList<String> commandHistory) {
         this.commandHistory = commandHistory;
     }
 
-    private final HashMap<String, String> commands= new HashMap<>();
+    private List<String> commands= new ArrayList<>();
 
-    /**
-     * command collection
-     * @return commands
-     */
-    public HashMap<String, String> getCommands(){
+
+    public List<String> getCommands(Class<Command> commandClass){
+        Class<?>[]
         return commands;
     }
-    public void commandsToString(){
-        for(String commandName : commands.values()){
-            IOHandler.println(commandName);
-        }
-    }
-    /*public void executeAdd(String[] commandName){
-        try{
-            if(commandName.length>0){
-                String command = commands.get(commandName[0]);
 
-            }else{
-                IOHandler.println("command not entered");
-            }
-        }catch (IllegalStateException | NullPointerException e){
-            if(!commandName[0].isEmpty() && commandName[0].equals("execute_script")){
-                IOHandler.println("command doesn't exist");
-            }
+    public void executeCommands(){
+        for(Command command : commands){
+            command.register();
+
         }
     }*/
 
-//    public Set<Class<? extends Command>> SubTypes(String packageName) {
-//        Reflections reflections = new Reflections(packageName, new SubTypesScanner(false));
-//        return reflections.getSubTypesOf(Object.class)
-//                .stream()
-//                .filter()
-//                .collect(Collectors.toSet());
-//    }
 
     private LinkedList<String> commandHistory;
 
