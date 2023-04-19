@@ -154,6 +154,16 @@ public class CollectionManager{
         }
 
     }
+    Comparator<SpaceMarine> meleeWeaponComparator = new Comparator<SpaceMarine>() {
+        @Override
+        public int compare(SpaceMarine o1, SpaceMarine o2) {
+            return o1.getMeleeWeapon().compareTo(o2.getMeleeWeapon());
+        }
+    };
+
+
+
+     //выводит элементы коллекции в порядке возрастания
 
     public void printAscending(){
 

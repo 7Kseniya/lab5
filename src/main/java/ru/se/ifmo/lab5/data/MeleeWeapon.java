@@ -5,6 +5,4 @@ public enum MeleeWeapon {
     MANREAPER,
     LIGHTING_CLAW,
     POWER_BLADE;
-
-
 }

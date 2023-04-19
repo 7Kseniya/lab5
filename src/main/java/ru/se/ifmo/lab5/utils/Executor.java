@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Runner {
+public class Executor {
     InputStreamReader reader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(reader);
     public void run(){
@@ -12,8 +12,8 @@ public class Runner {
 
         try {
             userCommand = new String[]{bufferedReader.readLine().trim().toLowerCase()};
-            userCommand[1] = ;
-        } catch (IOException ex) {
+            //userCommand[1] = ;
+        } catch (IOException e) {
             IOHandler.println("");
         }
     }

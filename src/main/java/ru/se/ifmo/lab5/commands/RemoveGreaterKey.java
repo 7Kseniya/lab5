@@ -18,13 +18,12 @@ public class RemoveGreaterKey extends Command{
 
     @Override
     void execute(CollectionManager collectionManager, String[] args) {
-        Integer id = new
         //collectionManager.removeGreater(id);
 
     }
 
     @Override
     public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
+        //commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }

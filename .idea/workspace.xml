@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[SAVE] save modification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveGreaterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveGreaterKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/MeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/MeleeWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandInvoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Executor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +43,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2NCdV86STXfcuysfTK0uOK78oFr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,6 +67,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -110,7 +124,7 @@
       <workItem from="1679311481234" duration="154000" />
       <workItem from="1679391333996" duration="81984000" />
       <workItem from="1680209924931" duration="49736000" />
-      <workItem from="1680699986910" duration="9213000" />
+      <workItem from="1680699986910" duration="29704000" />
     </task>
     <servers />
   </component>

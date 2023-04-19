@@ -6,11 +6,13 @@ import com.opencsv.exceptions.CsvException;
 import ru.se.ifmo.lab5.data.SpaceMarine;
 import java.io.*;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * class for writing collection to csv file
  */
 public class Writer {
+
     public void writeCSV(CollectionManager collectionManager, String[] args) throws IOException {
         if (args.length != 1) {
             System.err.println("invalid args");

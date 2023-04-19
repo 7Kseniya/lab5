@@ -21,12 +21,12 @@ public class MaxByMeleeWeapon extends Command {
     @Override
     void execute(CollectionManager collectionManager, String[] args) {
         Reader reader = new Reader();
-        LinkedList<String[]> collectionElem = reader.readCSV(args);
+        LinkedList<String[]> collectionElem = reader.loadDataFromFile(args);
 
     }
 
     @Override
     public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
+        //commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }

@@ -2,20 +2,20 @@ package ru.se.ifmo.lab5.utils;
 
 import ru.se.ifmo.lab5.commands.Command;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class CommandManager {
 
-
-    public static List<Class<? extends Command>> getClasses() {
+    /**
+     *
+     * @return commands from list
+     */
+    public static List<Class<? extends Command>> getCommandClasses() {
         List<Class<? extends Command>> commands = new ArrayList<>();
         String packageName = "ru.se.ifmo.lab5.commands";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        Package pkg = Package.getPackage(packageName);
+        //Package pkg = Package.getPackage(packageName);
         Set<Class<?>> classes;
 
         {
@@ -32,24 +32,22 @@ public class CommandManager {
         }
         return commands;
     }
-    /*public CommandManager(LinkedList<String> commandHistory) {
-        this.commandHistory = commandHistory;
-    }
-
-    private List<String> commands= new ArrayList<>();
-
-
-    public List<String> getCommands(Class<Command> commandClass){
-        Class<?>[]
-        return commands;
-    }
 
     public void executeCommands(){
-        for(Command command : commands){
-            command.register();
+        List<Class<? extends Command>> commandClasses = getCommandClasses();
 
+        for (Class<? extends Command> commandClass : commandClasses) {
+            Command command = null;
+            try {
+                command = commandClass.getDeclaredConstructor().newInstance();
+
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+            //command.execute();
         }
-    }*/
+
+    }
 
 
     private LinkedList<String> commandHistory;

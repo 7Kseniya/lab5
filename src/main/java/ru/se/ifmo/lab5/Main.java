@@ -1,15 +1,10 @@
 package ru.se.ifmo.lab5;
 
-import ru.se.ifmo.lab5.commands.Clear;
-import ru.se.ifmo.lab5.commands.*;
-import ru.se.ifmo.lab5.commands.Help;
-import ru.se.ifmo.lab5.commands.History;
-import ru.se.ifmo.lab5.utils.CommandManager;
-import ru.se.ifmo.lab5.utils.IOHandler;
+import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.utils.Reader;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 
 public class Main {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -22,17 +17,10 @@ public class Main {
             System.exit(1);
         }
         Reader reader = new Reader();
-        reader.readCSV(args[0].trim());
+        LinkedHashMap<Integer, SpaceMarine> loadedCollection = reader.loadDataFromFile(args[0].trim());
         System.out.println("if you need a help, use command" + ANSI_GREEN + "help" + ANSI_RESET);
         //access the filename passed as an argument
         String fileName = args[0];
         System.out.println("The filename is: " + fileName);
-
-
-
-
-
-
-
     }
 }

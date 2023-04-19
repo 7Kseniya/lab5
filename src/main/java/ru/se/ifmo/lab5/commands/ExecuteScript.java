@@ -5,8 +5,6 @@ import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 import ru.se.ifmo.lab5.utils.Reader;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 
 /**
@@ -24,20 +22,20 @@ public class ExecuteScript extends Command implements Serializable {
     String getDescription() {
         return "read and execute script from file";
     }
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
-    }
 
     @Override
     void execute(CollectionManager collectionManager, String[] args) {
-        try{
-            reader.readCSV(args);
-            if(reader.readCSV())
-        } catch (Exception e) {
-            IOHandler.println(" ");
-        }
+//        String scriptFilename = args[0];
+//        if (!scriptFile.exists() || !scriptFile.isFile()) {
+//            System.err.println("Error: script file does not exist or is not a regular file");
+//            System.exit(1);
+//        }
 
+
+    }
+
+    @Override
+    public void register(String commandName, Command command) {
 
     }
 }
