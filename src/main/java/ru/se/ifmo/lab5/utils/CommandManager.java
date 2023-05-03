@@ -2,14 +2,15 @@ package ru.se.ifmo.lab5.utils;
 
 import ru.se.ifmo.lab5.commands.Command;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 public class CommandManager {
-
     /**
-     *
-     * @return commands from list
+     *parse package and get all classes which extend Command
+     * @return list of command.class
      */
     public static List<Class<? extends Command>> getCommandClasses() {
         List<Class<? extends Command>> commands = new ArrayList<>();
@@ -33,40 +34,68 @@ public class CommandManager {
         return commands;
     }
 
-    public void executeCommands(){
+    public void getCommandInstance(){
         List<Class<? extends Command>> commandClasses = getCommandClasses();
 
         for (Class<? extends Command> commandClass : commandClasses) {
-            Command command = null;
             try {
-                command = commandClass.getDeclaredConstructor().newInstance();
-
+                commandClass.getDeclaredConstructor().newInstance();
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                throw new RuntimeException(e);
+                IOHandler.println("");
             }
-            //command.execute();
         }
+    }
+    HashMap<String, Command> commandMap = new HashMap();
 
+    public void addCommands(Command command) {
+        commandMap.put(command.getClass().getName(), command);
     }
 
+    public boolean hasCommand(String commandName) {
+        return commandMap.containsKey(commandName);
+    }
 
-    private LinkedList<String> commandHistory;
+    public Collection<Command> getAllCommands() {
+        return commandMap.values();
+    }
+    public void executeCommand(CollectionManager collectionManager, String[] args, BufferedReader reader){
+        while (true){
+            try{
+                getCommandInstance();
+                commandMap.get(args[0]).execute(collectionManager, args);
+                break;
+            } catch (Exception e) {
+                IOHandler.println("incorrect command parameters \ntry again");
+            }
+            try {
+                reader.readLine().toLowerCase().split(" ");
+            } catch (IOException e) {
+                IOHandler.println("incorrect input");
+            }
+        }
+    }
 
-    public LinkedList<String> getCommandHistory() {
+    private PriorityQueue<String> commandHistory;
+
+    public PriorityQueue<String> getCommandHistory() {
         return commandHistory;
     }
 
     /**
-     * add command into command history collection
+     * add command to command history collection
      * @param command
      */
     public void addToHistory(String command){
-        if(commandHistory.size() < 11){
-            commandHistory.addLast(command);
-        }else{
-            commandHistory.removeFirst();
+        if (commandHistory.size() == 11) {
+            commandHistory.poll();
         }
-
+        commandHistory.add(command);
+    }
+    public String getHistory() {
+        StringBuilder temp = new StringBuilder();
+        for (String string : getCommandHistory())
+            temp.append(string).append("\n");
+        return temp.toString();
     }
 
 

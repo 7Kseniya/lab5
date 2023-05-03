@@ -5,7 +5,12 @@ import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.exceptions.InvalidCollectionElemId;
 import ru.se.ifmo.lab5.exceptions.InvalidValueException;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
 import java.util.*;
 
@@ -13,12 +18,14 @@ import java.util.*;
  * class describes the commands associated with the collection
  */
 public class CollectionManager{
+    public final String FILE_NAME = "file.csv";
     private Integer nextId = 1;
     public LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection;
     private final ZonedDateTime creationDate;
+    Creator creator = new Creator();
 
-    public CollectionManager(LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection, ZonedDateTime creationDate) {
-        this.spaceMarineCollection = spaceMarineCollection;
+    public CollectionManager(ZonedDateTime creationDate) {
+        //this.spaceMarineCollection = spaceMarineCollection;
         this.creationDate = ZonedDateTime.now();
     }
 
@@ -40,6 +47,7 @@ public class CollectionManager{
             try{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() == null){
+                    creator.createSpaceMarine();
                     spaceMarineCollection.put(id, spaceMarine);
                 }else{
                     throw new InvalidCollectionElemId();
@@ -173,7 +181,23 @@ public class CollectionManager{
 
 
 
-
+    public void save(){
+        File outputFile = new File(FILE_NAME);
+        try {
+            outputFile.createNewFile();
+            StringBuilder csv = new StringBuilder();
+            for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
+                String[] row = spaceMarine.getAll();
+                csv.append(String.join(",", row));
+                csv.append("\n");
+            }
+            BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(FILE_NAME));
+            output.write(String.join("", csv).getBytes(StandardCharsets.UTF_8));
+            output.close();
+        } catch (IOException e){
+            IOHandler.println("unable to save collection to file");
+        }
+    }
 
     /**
      * clear collection

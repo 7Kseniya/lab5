@@ -16,8 +16,6 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
     private AstartesCategory category; //Поле не может быть null
     private MeleeWeapon meleeWeapon; //Поле может быть null
     private Chapter chapter; //Поле не может быть null
-    public Creator creator;
-    public Reader reader;
 
     /**
      * constructor
@@ -38,7 +36,7 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
-        this.creationDate = creationDate;
+        this.creationDate = ZonedDateTime.now();
         this.health = health;
         this.loyal = loyal;
         this.meleeWeapon = meleeWeapon;
@@ -119,7 +117,7 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
      */
     @Override
     public int compareTo(SpaceMarine o) {
-        return (int) id - o.getId();
+        return (int) this.id - o.getId();
     }
     public boolean equals(Object o) {
         if (o == null || this.getClass() != o.getClass()) return false;
@@ -134,18 +132,24 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
 
     @Override
     public String toString() {
-        return "id: " + id + "\n" +
-                "name: " + name + "\n" +
-                "coordinates: \nx = " + coordinates.getX() + "\n" +
-                "y = " + coordinates.getY() + "\n" +
-                "creationDate: " + creationDate + "\n" +
-                "health: " + health  + "\n" +
-                "loyal: " + loyal  + "\n" +
-                "category: " + category + "\n" +
-                "meleeWeapon: " + meleeWeapon + "\n"+
-                "chapter: \nname: " + chapter.getName() + "\n" +
-                "marinesCount: " + chapter.getMarinesCount() + "\n" +
-                "world: " + chapter.getWorld();
+        return "id: " + id  +
+                "\nname: " + name +
+                "\ncoordinates: \nx = " + coordinates.getX() +
+                "\ny = " + coordinates.getY() +
+                "\ncreationDate: " + creationDate +
+                "\nhealth: " + health  +
+                "\nloyal: " + loyal  +
+                "\ncategory: " + category +
+                "\nmeleeWeapon: " + meleeWeapon +
+                "\nchapter: \nname: " + chapter.getName() +
+                "\nmarinesCount: " + chapter.getMarinesCount() +
+                "\nworld: " + chapter.getWorld();
+    }
+    public String[] getAll() {
+        return new String[]{String.valueOf(this.id), String.valueOf(this.name), String.valueOf(this.coordinates),
+                String.valueOf(this.creationDate), String.valueOf(this.health), String.valueOf(this.loyal),
+                String.valueOf(this.category), String.valueOf(this.meleeWeapon), String.valueOf(chapter.getName()),
+                String.valueOf(chapter.getWorld()), String.valueOf(chapter.getMarinesCount())};
     }
 
 }

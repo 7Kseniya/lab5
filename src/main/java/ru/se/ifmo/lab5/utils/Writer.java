@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class Writer {
 
-    public void writeCSV(CollectionManager collectionManager, String[] args) throws IOException {
+    /*public void writeCSV(CollectionManager collectionManager, String[] args) throws IOException {
         if (args.length != 1) {
             System.err.println("invalid args");
             System.exit(1);
@@ -38,6 +38,6 @@ public class Writer {
 
             }
         }
-    }
+    }*/
 
 }

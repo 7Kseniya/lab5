@@ -1,11 +1,12 @@
 package ru.se.ifmo.lab5.commands;
 
+import ru.se.ifmo.lab5.exceptions.RecursiveScriptException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 import ru.se.ifmo.lab5.utils.Reader;
 
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * command which read and execute script from file
@@ -25,11 +26,29 @@ public class ExecuteScript extends Command implements Serializable {
 
     @Override
     void execute(CollectionManager collectionManager, String[] args) {
-//        String scriptFilename = args[0];
-//        if (!scriptFile.exists() || !scriptFile.isFile()) {
-//            System.err.println("Error: script file does not exist or is not a regular file");
-//            System.exit(1);
-//        }
+        if(args[0].isEmpty()){
+            IOHandler.println("write filename");
+        }
+        File scriptFile = new File(args[0]);
+        if (!scriptFile.exists() || !scriptFile.isFile()) {
+            System.err.println("Error: script file does not exist or is not a regular file");
+            System.exit(1);
+        }else if(scriptFile.exists() && !scriptFile.canRead()){
+            IOHandler.println("no permission to read this file");
+        }else{
+            try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(scriptFile)))) {
+                String line;
+                while ((reader.readLine()) != null) {
+                    line = reader.readLine().toLowerCase();
+                    if (line.startsWith("execute_script")) {
+                        throw new RecursiveScriptException();
+                    }
+                }
+            } catch (IOException e) {
+                IOHandler.println(" ");
+            }
+        }
+
 
 
     }

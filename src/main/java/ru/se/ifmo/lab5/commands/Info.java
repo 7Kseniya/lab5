@@ -25,14 +25,11 @@ public class Info extends Command{
     String getDescription() {
         return "show information about collection (type, initialization date, amount of elements)";
     }
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
-    }
+
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
-        if(args.length == 0 | args.toString().trim().isEmpty()) {
+    public void execute(CollectionManager collectionManager, String[] args) {
+        if(args.length != 0) {
             IOHandler.println(ANSI_RED + "incorrect number of args " + ANSI_RESET);
         }else{
             IOHandler.println("number of elements in the collection: " + collectionManager.getSize());

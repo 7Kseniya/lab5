@@ -19,14 +19,8 @@ public class MaxByMeleeWeapon extends Command {
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
-        Reader reader = new Reader();
-        LinkedList<String[]> collectionElem = reader.loadDataFromFile(args);
+    public void execute(CollectionManager collectionManager, String[] args) {
 
     }
 
-    @Override
-    public void register(String commandName, Command command) {
-        //commandManager.getCommands().put(getCommandName(), getDescription());
-    }
 }

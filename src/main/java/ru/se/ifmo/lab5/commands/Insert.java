@@ -32,14 +32,14 @@ public class Insert extends Command {
     }
     @Override
     public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
+        //commandManager.getCommands().put(getCommandName(), getDescription());
     }
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
 
         try{
-            if((args.length == 0 | args.toString().trim().isEmpty())) throw new NumberOfArgsException();
+            if((args.length == 0 | args[0].trim().isEmpty())) throw new NumberOfArgsException();
             SpaceMarine spaceMarine = new SpaceMarine(collectionManager.generateNextId(), creator.createName(), creator.createCoordinates(),
                     creator.createDate(), creator.createHealth(), creator.createLoyal(), creator.chooseAstarters(), creator.chooseMeleeWeapon(), creator.createChapter());
             collectionManager.spaceMarineCollection.put(spaceMarine.getId(), spaceMarine);

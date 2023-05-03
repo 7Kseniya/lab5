@@ -1,10 +1,8 @@
 package ru.se.ifmo.lab5.commands;
 
-import ru.se.ifmo.lab5.utils.CollectionManager;
-import ru.se.ifmo.lab5.utils.CommandRegistrar;
-import ru.se.ifmo.lab5.utils.IOHandler;
+import ru.se.ifmo.lab5.utils.CommandExecutor;
 
-public abstract class Command implements CommandRegistrar {
+public abstract class Command implements CommandExecutor {
    /**
     * colors for output modification
     */
@@ -13,7 +11,6 @@ public abstract class Command implements CommandRegistrar {
    public static final String ANSI_RESET = "\u001B[0m";
    abstract String getCommandName();
    abstract String getDescription();
-   abstract void execute(CollectionManager collectionManager, String[] args);
 
 
 

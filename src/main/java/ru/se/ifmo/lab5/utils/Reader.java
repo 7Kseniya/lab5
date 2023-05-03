@@ -40,7 +40,7 @@ public class Reader {
         }
     }*/
 
-    public LinkedHashMap<Integer, SpaceMarine> loadDataFromFile(String args) {
+    /*public LinkedHashMap<Integer, SpaceMarine> loadDataFromFile(String args) {
         LinkedHashMap<Integer, SpaceMarine> collection = new LinkedHashMap<>();
         String fileName = args;
         if (!(fileName.isBlank())) {
@@ -69,5 +69,5 @@ public class Reader {
             }
         }
         return collection;
-    }
+    }*/
 }

@@ -21,6 +21,16 @@ public class Creator {
 
     InputStreamReader reader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(reader);
+    public void createSpaceMarine(){
+        createDate();
+        createName();
+        createCoordinates();
+        createHealth();
+        createLoyal();
+        chooseAstarters();
+        chooseMeleeWeapon();
+        createChapter();
+    }
 
     /**
      * throw IncorrectValueException if the values don't fit the constraints

@@ -36,9 +36,4 @@ public class History extends Command{
             }
         }
     }
-
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
-    }
 }

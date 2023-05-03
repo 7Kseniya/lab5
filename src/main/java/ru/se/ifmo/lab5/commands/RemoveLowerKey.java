@@ -17,13 +17,8 @@ public class RemoveLowerKey extends Command{
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         //TODO implements realization
         //collectionManager.removeLower();
-    }
-
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }
