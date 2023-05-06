@@ -21,16 +21,11 @@ public class PrintAscending extends Command{
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         //TODO realization
         commandManager.addToHistory(getCommandName());
         Set<Integer> keySet = new TreeSet<>();
         keySet.addAll(collectionManager.spaceMarineCollection.keySet());
 
-    }
-
-    @Override
-    public void register(String commandName, Command command) {
-        //commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }

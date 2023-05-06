@@ -18,6 +18,8 @@ public class Creator {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
+    private String line = "";
+    private String[] spaceMarArg;
 
     InputStreamReader reader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(reader);
@@ -41,7 +43,12 @@ public class Creator {
         try{
             IOHandler.println(ANSI_BLUE + "enter your name:" + ANSI_RESET);
             name = bufferedReader.readLine();
-            if(name.trim().isEmpty()) throw new InvalidValueException();
+            if(name.trim().isEmpty()){
+                throw new InvalidValueException();
+            }else{
+
+            }
+
         } catch (IOException e) {
             IOHandler.println(ANSI_RED + "" + ANSI_RESET);
             name = createName();

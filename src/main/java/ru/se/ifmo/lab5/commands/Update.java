@@ -17,13 +17,8 @@ public class Update extends Command{
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         //TODO implements realization
         //collectionManager.update();
-    }
-
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }

@@ -26,7 +26,6 @@ public class Info extends Command{
         return "show information about collection (type, initialization date, amount of elements)";
     }
 
-
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         if(args.length != 0) {

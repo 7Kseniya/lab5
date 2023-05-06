@@ -15,16 +15,10 @@ public class Exit extends Command{
     String getDescription() {
         return "terminate program";
     }
-    @Override
-    public void register(String commandName, Command command) {
-        //commandManager.getCommands().put(getCommandName(), getDescription());
-    }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         System.exit(0);
         IOHandler.println("program terminate successfully");
-
-
     }
 }

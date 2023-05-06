@@ -2,9 +2,7 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.exceptions.RecursiveScriptException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
-import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
-import ru.se.ifmo.lab5.utils.Reader;
 
 import java.io.*;
 
@@ -12,8 +10,6 @@ import java.io.*;
  * command which read and execute script from file
  */
 public class ExecuteScript extends Command implements Serializable {
-    CommandManager commandManager;
-    Reader reader;
     @Override
     String getCommandName() {
         return "execute_script";
@@ -25,7 +21,7 @@ public class ExecuteScript extends Command implements Serializable {
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         if(args[0].isEmpty()){
             IOHandler.println("write filename");
         }
@@ -48,13 +44,5 @@ public class ExecuteScript extends Command implements Serializable {
                 IOHandler.println(" ");
             }
         }
-
-
-
-    }
-
-    @Override
-    public void register(String commandName, Command command) {
-
     }
 }

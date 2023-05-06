@@ -74,13 +74,10 @@ public class CommandManager {
             }
         }
     }
-
     private PriorityQueue<String> commandHistory;
-
     public PriorityQueue<String> getCommandHistory() {
         return commandHistory;
     }
-
     /**
      * add command to command history collection
      * @param command
@@ -97,6 +94,12 @@ public class CommandManager {
             temp.append(string).append("\n");
         return temp.toString();
     }
+
+
+
+
+
+
 
 
 

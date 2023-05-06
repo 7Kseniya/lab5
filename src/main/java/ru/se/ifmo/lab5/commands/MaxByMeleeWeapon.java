@@ -2,9 +2,6 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
-import ru.se.ifmo.lab5.utils.Reader;
-
-import java.util.LinkedList;
 
 public class MaxByMeleeWeapon extends Command {
     CommandManager commandManager;

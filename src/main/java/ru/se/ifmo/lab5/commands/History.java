@@ -5,6 +5,8 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
+import java.util.PriorityQueue;
+
 public class History extends Command{
     CommandManager commandManager;
 
@@ -21,6 +23,7 @@ public class History extends Command{
     public String getDescription() {
         return "show the last 11 commands without arguments";
     }
+
     /**
      * show history of last 11 commands
      */

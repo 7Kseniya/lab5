@@ -30,10 +30,6 @@ public class Insert extends Command {
     public String getDescription() {
         return "add a new element with given key to collection";
     }
-    @Override
-    public void register(String commandName, Command command) {
-        //commandManager.getCommands().put(getCommandName(), getDescription());
-    }
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {

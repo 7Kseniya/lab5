@@ -1,14 +1,6 @@
 package ru.se.ifmo.lab5.commands;
 
-import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.utils.*;
-
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-
 
 public class Save extends Command{
 

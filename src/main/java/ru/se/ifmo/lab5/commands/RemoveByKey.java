@@ -22,7 +22,7 @@ public class RemoveByKey extends Command{
     }
 
     @Override
-    void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, String[] args) {
         try {
             if(args[0].trim().isEmpty()) throw new NumberOfArgsException();
             Integer id = Integer.parseInt(Arrays.toString(args));
@@ -31,10 +31,5 @@ public class RemoveByKey extends Command{
         } catch (NumberOfArgsException e) {
             IOHandler.println("incorrect amount of args");
         }
-    }
-
-    @Override
-    public void register(String commandName, Command command) {
-        commandManager.getCommands().put(getCommandName(), getDescription());
     }
 }

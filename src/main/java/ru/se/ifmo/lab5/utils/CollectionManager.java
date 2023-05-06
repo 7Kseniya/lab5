@@ -1,10 +1,8 @@
 package ru.se.ifmo.lab5.utils;
 
-
 import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.exceptions.InvalidCollectionElemId;
 import ru.se.ifmo.lab5.exceptions.InvalidValueException;
-
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +23,6 @@ public class CollectionManager{
     Creator creator = new Creator();
 
     public CollectionManager(ZonedDateTime creationDate) {
-        //this.spaceMarineCollection = spaceMarineCollection;
         this.creationDate = ZonedDateTime.now();
     }
 
@@ -179,10 +176,11 @@ public class CollectionManager{
 
     }
 
-
-
-    public void save(){
-        File outputFile = new File(FILE_NAME);
+    /**
+     * save collection to file
+     */
+    public void save(String args){
+        File outputFile = new File(args);
         try {
             outputFile.createNewFile();
             StringBuilder csv = new StringBuilder();
@@ -191,7 +189,7 @@ public class CollectionManager{
                 csv.append(String.join(",", row));
                 csv.append("\n");
             }
-            BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(FILE_NAME));
+            BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(outputFile));
             output.write(String.join("", csv).getBytes(StandardCharsets.UTF_8));
             output.close();
         } catch (IOException e){

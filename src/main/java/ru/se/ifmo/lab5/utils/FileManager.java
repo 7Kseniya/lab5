@@ -1,31 +1,60 @@
 package ru.se.ifmo.lab5.utils;
 
-import ru.se.ifmo.lab5.data.*;
-
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+import ru.se.ifmo.lab5.data.SpaceMarine;
 import java.io.*;
 import java.nio.file.AccessDeniedException;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.util.LinkedHashMap;
 
+/**
+ * class for reading csv file
+ */
 public class FileManager {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    private static final String DELIMETER = ",";
-    public void inputFile(String[] args) throws IOException, AccessDeniedException {
-        try{
+    //private static final String DELIMETER = ",";
+    public void inputFile(String[] args) {
+        try {
             //check if the filename is passed as an argument
             File fileName = new File(args[0]);
-            if (!fileName.exists()){
+            if (!fileName.exists()) {
                 throw new FileNotFoundException();
-            }
-            Creator creator = new Creator();
-            creator.createSpaceMarine();
+            } else IOHandler.println(ANSI_GREEN + "your filename is: " + ANSI_RESET + fileName);
+            LinkedHashMap<Integer, SpaceMarine> collection = new LinkedHashMap<>();
+
+
             //if (!fileName.canRead()) throw new AccessDeniedException(args[0]);
-            IOHandler.println(ANSI_GREEN + "your filename is: " + ANSI_RESET + fileName);
-/*          InputStream input = new FileInputStream(fileName);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-            String line = "";
+            if (fileName.canRead()) {
+                try (InputStreamReader inputStream = new InputStreamReader(new FileInputStream(fileName));
+                     CSVReader csvReader = new CSVReader(inputStream)) {
+
+                    String[] lines;
+                    while ((lines = csvReader.readNext()) != null) {
+                        String csvString = lines[0];
+                        byte[] bytes = csvString.getBytes();
+                        ByteArrayInputStream bytesToObj = new ByteArrayInputStream(bytes);
+                        ObjectInputStream objIn = new ObjectInputStream(bytesToObj);
+                        collection = (LinkedHashMap<Integer, SpaceMarine>) objIn.readObject();
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            IOHandler.println(ANSI_RED + "file not found");
+            System.exit(1);
+        } catch (NullPointerException e) {
+            IOHandler.println(ANSI_RED + "file is empty");
+            System.exit(1);
+        } catch (CsvValidationException | IOException e) {
+            IOHandler.println(ANSI_RED + "line in file is invalid");
+            System.exit(1);
+        } catch (ClassNotFoundException e) {
+            IOHandler.println(ANSI_RED + "class is not found");
+        }
+    }
+
+            /*String line = "";
             String[] spaceMarArg;
             while ((line = reader.readLine()) != null) {
                 spaceMarArg = line.split(DELIMETER);
@@ -43,14 +72,11 @@ public class FileManager {
                 //collectionManager.add(spaceMarine);
             }*/
 
-            //reader.close();
+        //reader.close();
 /*        } catch (AccessDeniedException e) {
             IOHandler.println("access denied");*/
-        } catch (FileNotFoundException e){
+        /*} catch (FileNotFoundException e){
             IOHandler.println(ANSI_RED + "Please provide the filename as an argument." + ANSI_RESET);
 
-        }
-
-    }
-
+        }*/
 }
