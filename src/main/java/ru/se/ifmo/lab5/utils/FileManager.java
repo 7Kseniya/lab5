@@ -2,9 +2,12 @@ package ru.se.ifmo.lab5.utils;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import ru.se.ifmo.lab5.data.SpaceMarine;
+import ru.se.ifmo.lab5.data.*;
+
 import java.io.*;
-import java.nio.file.AccessDeniedException;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 
 /**
@@ -14,19 +17,91 @@ public class FileManager {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    //private static final String DELIMETER = ",";
-    public void inputFile(String[] args) {
+
+    public void inputFile(String[] args){
         try {
             //check if the filename is passed as an argument
-            File fileName = new File(args[0]);
-            if (!fileName.exists()) {
-                throw new FileNotFoundException();
-            } else IOHandler.println(ANSI_GREEN + "your filename is: " + ANSI_RESET + fileName);
+            File fileName = new File(args[0].strip());
+            if (!fileName.exists()) throw new FileNotFoundException();
+            if(!fileName.canRead()) IOHandler.println(ANSI_RED + "access denied" + ANSI_RESET);
+            IOHandler.println("your filename is: " + ANSI_GREEN + fileName);
             LinkedHashMap<Integer, SpaceMarine> collection = new LinkedHashMap<>();
+            try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
+                String[] headers = csvReader.readNext();
+                String[] fields;
+                while ((fields = csvReader.readNext()) != null) {
+                    int id = Integer.parseInt(fields[0].trim());
+                    String name = fields[1].trim();
+                    float x = Float.parseFloat(fields[2].trim());
+                    long y = Long.parseLong(fields[3].trim());
+                    int health = Integer.parseInt(fields[4].trim());
+                    boolean loyal = Boolean.parseBoolean(fields[5].trim());
+                    String category = fields[6].trim();
+                    String weapon = fields[7].trim();
+                    String chapterName = fields[8].trim();
+                    int marinesCount = Integer.parseInt(fields[9].trim());
+                    String world = fields[10].trim();
+
+                    SpaceMarine marine = new SpaceMarine(
+                            id, name,
+                            new Coordinates(x, y),
+                            ZonedDateTime.now(),
+                            health, loyal,
+                            AstartesCategory.valueOf(category),
+                            MeleeWeapon.valueOf(weapon),
+                            new Chapter(chapterName, marinesCount, world));
+                    collection.put(id, marine);
+                }
+            }
+
+            IOHandler.println("collection size: " + collection.size());
+            for (SpaceMarine marine : collection.values()) {
+                IOHandler.println(marine.toString());
+            }
+
+        } catch (FileNotFoundException e) {
+            IOHandler.println(ANSI_RED + "file " + args[0] + "not found" + ANSI_RESET);
+        } catch (IOException | CsvValidationException e) {
+            IOHandler.println(ANSI_RED + "error reading file: " + e.getMessage() + ANSI_RESET);
+        } catch (IllegalArgumentException e) {
+            IOHandler.println(ANSI_RED + "error parsing CSV data: " + e.getMessage() + ANSI_RESET);
+        }
+    }
+
+    /**
+     * method to write collection to file (сейчас не надо, для следующей лабы)
+     * @param collection
+     * @param fileName
+     */
+   /* public static void writeCollectionToCsv(LinkedHashMap<Integer, SpaceMarine> collection, String fileName) {
+        try (BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(fileName))) {
+            for (SpaceMarine spaceMarine : collection.values()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(spaceMarine.getName()).append(",")
+                        .append(spaceMarine.getCoordinates().getX()).append(",")
+                        .append(spaceMarine.getCoordinates().getY()).append(",")
+                        .append(spaceMarine.getCreationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))).append(",")
+                        .append(spaceMarine.getHealth()).append(",")
+                        .append(spaceMarine.getLoyal()).append(",")
+                        .append(spaceMarine.getCategory()).append(",")
+                        .append(spaceMarine.getMeleeWeapon()).append(",")
+                        .append(spaceMarine.getChapter().getName()).append(",")
+                        .append(spaceMarine.getChapter().getMarinesCount()).append(",")
+                        .append(spaceMarine.getChapter().getWorld());
+                sb.append("\n");
+                outputStream.write(sb.toString().getBytes());
+            }
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }*/
+
+}
+
 
 
             //if (!fileName.canRead()) throw new AccessDeniedException(args[0]);
-            if (fileName.canRead()) {
+  /*          if (fileName.canRead()) {
                 try (InputStreamReader inputStream = new InputStreamReader(new FileInputStream(fileName));
                      CSVReader csvReader = new CSVReader(inputStream)) {
 
@@ -52,7 +127,7 @@ public class FileManager {
         } catch (ClassNotFoundException e) {
             IOHandler.println(ANSI_RED + "class is not found");
         }
-    }
+    }*/
 
             /*String line = "";
             String[] spaceMarArg;
@@ -79,4 +154,3 @@ public class FileManager {
             IOHandler.println(ANSI_RED + "Please provide the filename as an argument." + ANSI_RESET);
 
         }*/
-}

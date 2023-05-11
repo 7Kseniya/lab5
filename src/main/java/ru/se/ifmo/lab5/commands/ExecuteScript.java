@@ -22,9 +22,8 @@ public class ExecuteScript extends Command implements Serializable {
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-        if(args[0].isEmpty()){
-            IOHandler.println("write filename");
-        }
+        if(args[0].isEmpty()) IOHandler.println("write correct filename");
+
         File scriptFile = new File(args[0]);
         if (!scriptFile.exists() || !scriptFile.isFile()) {
             System.err.println("Error: script file does not exist or is not a regular file");

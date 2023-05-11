@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -24,6 +25,16 @@ public class CollectionManager{
 
     public CollectionManager(ZonedDateTime creationDate) {
         this.creationDate = ZonedDateTime.now();
+    }
+
+    /**
+     * format creation date and output it as string
+     * @return formatted creation date
+     */
+    public String getCreationDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDate = creationDate.format(formatter);
+        return formattedDate;
     }
 
     /**
@@ -54,7 +65,6 @@ public class CollectionManager{
             }catch (NullPointerException e){
                 IOHandler.println("specified id is null");
             }
-
         }
     }
     /**
@@ -136,7 +146,6 @@ public class CollectionManager{
             }catch (NullPointerException e){
                 IOHandler.println("specified id is null");
             }
-
         }
     }
 
@@ -157,7 +166,6 @@ public class CollectionManager{
                 IOHandler.println("'health' must be over 0");
             }
         }
-
     }
     Comparator<SpaceMarine> meleeWeaponComparator = new Comparator<SpaceMarine>() {
         @Override
@@ -167,13 +175,13 @@ public class CollectionManager{
     };
 
 
-
-     //выводит элементы коллекции в порядке возрастания
-
+    /**
+     * show collection elements in ascending order
+     */
     public void printAscending(){
-
-
-
+        spaceMarineCollection.entrySet().stream()
+                .sorted(Comparator.comparingInt(Map.Entry::getKey))
+                .forEach(entry -> IOHandler.println(entry.getValue()));
     }
 
     /**
@@ -182,7 +190,6 @@ public class CollectionManager{
     public void save(String args){
         File outputFile = new File(args);
         try {
-            outputFile.createNewFile();
             StringBuilder csv = new StringBuilder();
             for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
                 String[] row = spaceMarine.getAll();

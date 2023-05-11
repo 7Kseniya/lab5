@@ -17,7 +17,7 @@ public class MaxByMeleeWeapon extends Command {
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-
+    //TODO realization
     }
 
 }

@@ -24,7 +24,7 @@ public class RemoveByKey extends Command{
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         try {
-            if(args[0].trim().isEmpty()) throw new NumberOfArgsException();
+            if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
             Integer id = Integer.parseInt(Arrays.toString(args));
             collectionManager.removeById(id);
             IOHandler.println("element removed");

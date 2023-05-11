@@ -1,12 +1,9 @@
 package ru.se.ifmo.lab5.commands;
 
-import ru.se.ifmo.lab5.data.SpaceMarine;
+import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
-
-import java.util.Set;
-import java.util.TreeSet;
 
 public class PrintAscending extends Command{
     CommandManager commandManager;
@@ -22,10 +19,13 @@ public class PrintAscending extends Command{
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-        //TODO realization
-        commandManager.addToHistory(getCommandName());
-        Set<Integer> keySet = new TreeSet<>();
-        keySet.addAll(collectionManager.spaceMarineCollection.keySet());
-
+        if(args.length != 0) try {
+            throw new NumberOfArgsException();
+        } catch (NumberOfArgsException e) {
+            throw new RuntimeException(e);
+        }
+        else{
+            collectionManager.printAscending();
+        }
     }
 }

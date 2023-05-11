@@ -10,7 +10,7 @@ import java.util.*;
 public class CommandManager {
     /**
      *parse package and get all classes which extend Command
-     * @return list of command.class
+     * @return list of command classes
      */
     public static List<Class<? extends Command>> getCommandClasses() {
         List<Class<? extends Command>> commands = new ArrayList<>();
@@ -39,17 +39,14 @@ public class CommandManager {
 
         for (Class<? extends Command> commandClass : commandClasses) {
             try {
-                commandClass.getDeclaredConstructor().newInstance();
+                Command command = commandClass.getDeclaredConstructor().newInstance();
+                commandMap.put(command.getClass().getName(), command);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                IOHandler.println("");
+                IOHandler.println("failed to create command instances");
             }
         }
     }
-    HashMap<String, Command> commandMap = new HashMap();
-
-    public void addCommands(Command command) {
-        commandMap.put(command.getClass().getName(), command);
-    }
+    HashMap<String, Command> commandMap = new HashMap<>();
 
     public boolean hasCommand(String commandName) {
         return commandMap.containsKey(commandName);
@@ -59,16 +56,21 @@ public class CommandManager {
         return commandMap.values();
     }
     public void executeCommand(CollectionManager collectionManager, String[] args, BufferedReader reader){
-        while (true){
-            try{
-                getCommandInstance();
-                commandMap.get(args[0]).execute(collectionManager, args);
-                break;
+        while (true) {
+            try {
+                Command command = commandMap.get(args[0]);
+                if (command == null) {
+                    IOHandler.println("unknown command");
+                } else {
+                    command.execute(collectionManager, Arrays.copyOfRange(args, 1, args.length));
+                    addToHistory(String.join(" ", args));
+                    break;
+                }
             } catch (Exception e) {
                 IOHandler.println("incorrect command parameters \ntry again");
             }
             try {
-                reader.readLine().toLowerCase().split(" ");
+                args = reader.readLine().toLowerCase().split(" ");
             } catch (IOException e) {
                 IOHandler.println("incorrect input");
             }
@@ -89,21 +91,9 @@ public class CommandManager {
         commandHistory.add(command);
     }
     public String getHistory() {
-        StringBuilder temp = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (String string : getCommandHistory())
-            temp.append(string).append("\n");
-        return temp.toString();
+            builder.append(string).append("\n");
+        return builder.toString();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -36,8 +36,8 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
         this.creationDate = ZonedDateTime.now();
         this.health = health;
         this.loyal = loyal;
-        this.meleeWeapon = meleeWeapon;
         this.category = category;
+        this.meleeWeapon = meleeWeapon;
         this.chapter = chapter;
 
     }

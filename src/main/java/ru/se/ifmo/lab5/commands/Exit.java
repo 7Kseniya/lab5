@@ -19,6 +19,6 @@ public class Exit extends Command{
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         System.exit(0);
-        IOHandler.println("program terminate successfully");
+        IOHandler.println(ANSI_GREEN + "program terminate successfully" + ANSI_RESET);
     }
 }
