@@ -5,29 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[SAVE] save modification">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/exceptions/RecursiveScriptException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/exceptions/CommandNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/FilterByHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/FilterByHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Help.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/History.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Insert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Insert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/MaxByMeleeWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/PrintAscending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/PrintAscending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveByKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveByKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveGreaterKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveGreaterKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveLowerKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/RemoveLowerKey.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Save.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Update.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/SpaceMarine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/SpaceMarine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Executor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,25 +63,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/ksenia/Desktop/lab5_project/lab5_update/src/main/java/ru/se/ifmo/lab5&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ksenia/Desktop/lab5_project/lab5_update/src/main/java/ru/se/ifmo/lab5&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "/Users/ksenia/Desktop/lab5_project/lab5_update/src/main/java/ru/se/ifmo/lab5",
+    "last_opened_file_path": "/Users/ksenia/Desktop/lab5_project/lab5_update/src/main/java/ru/se/ifmo/lab5",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.se.ifmo.lab5.exceptions" />
@@ -150,7 +152,7 @@
       <workItem from="1680209924931" duration="49736000" />
       <workItem from="1680699986910" duration="29918000" />
       <workItem from="1681887713004" duration="3382000" />
-      <workItem from="1682163094924" duration="24925000" />
+      <workItem from="1682163094924" duration="52766000" />
     </task>
     <servers />
   </component>
