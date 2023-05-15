@@ -9,7 +9,7 @@ public class Save extends Command{
 
 
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "save";
     }
 

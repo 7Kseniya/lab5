@@ -2,7 +2,6 @@ package ru.se.ifmo.lab5.utils;
 
 import ru.se.ifmo.lab5.data.*;
 import ru.se.ifmo.lab5.exceptions.InvalidValueException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,8 +17,6 @@ public class Creator {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
-    private String line = "";
-    private String[] spaceMarArg;
 
     InputStreamReader reader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(reader);
@@ -43,12 +40,7 @@ public class Creator {
         try{
             IOHandler.println(ANSI_BLUE + "enter your name:" + ANSI_RESET);
             name = bufferedReader.readLine();
-            if(name.trim().isEmpty()){
-                throw new InvalidValueException();
-            }else{
-
-            }
-
+            if(name.trim().isEmpty()) throw new InvalidValueException();
         } catch (IOException e) {
             IOHandler.println(ANSI_RED + "" + ANSI_RESET);
             name = createName();
@@ -64,8 +56,8 @@ public class Creator {
      * @return ru.se.ifmo.lab5.data.Coordinates
      */
     public Coordinates createCoordinates(){
-        float x = 0;
-        long y = 0;
+        float x;
+        long y;
         Coordinates coordinates;
         try{
             IOHandler.println(ANSI_BLUE + "enter coordinates: \nx = " + ANSI_RESET);
@@ -151,7 +143,7 @@ public class Creator {
      */
 
     public Integer createHealth(){
-        Integer health = 0;
+        Integer health;
         try{
             IOHandler.println(ANSI_BLUE + "enter health value: " + ANSI_RESET);
             health = parseInt(bufferedReader.readLine().trim());
@@ -192,15 +184,15 @@ public class Creator {
      */
     public Chapter createChapter(){
         String name;
-        Integer marinesCount;
-        String world = "";
+        int marinesCount;
+        String world;
         Chapter chapter;
         try{
             IOHandler.println(ANSI_BLUE + "enter chapter name: " + ANSI_RESET);
             name = bufferedReader.readLine().trim();
             IOHandler.println(ANSI_BLUE + "enter chapters' marines count: " + ANSI_RESET);
             marinesCount = parseInt(bufferedReader.readLine().trim());
-            IOHandler.println(ANSI_BLUE + "enter chapters' world: " + ANSI_RESET);
+            IOHandler.println(ANSI_BLUE + "enter chapter world: " + ANSI_RESET);
             world = bufferedReader.readLine().trim();
             if(name.isBlank() | !(marinesCount > 0) | marinesCount > 1000) throw new InvalidValueException();
             chapter = new Chapter(name, marinesCount, world);

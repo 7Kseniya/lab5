@@ -17,7 +17,6 @@ import java.util.*;
  * class describes the commands associated with the collection
  */
 public class CollectionManager{
-    public final String FILE_NAME = "file.csv";
     private Integer nextId = 1;
     public LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection;
     private final ZonedDateTime creationDate;
@@ -48,11 +47,11 @@ public class CollectionManager{
 
     /**
      * insert an object of class spaceMarine into collection
-     * @param id
      */
-    public void insert(Integer id){
+/*    public void insert(){
         for (SpaceMarine spaceMarine : spaceMarineCollection.values()){
             try{
+                Integer id = generateNextId();
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() == null){
                     creator.createSpaceMarine();
@@ -66,7 +65,7 @@ public class CollectionManager{
                 IOHandler.println("specified id is null");
             }
         }
-    }
+    }*/
     /**
      * update an element of collection by id
      * @param id
@@ -167,12 +166,12 @@ public class CollectionManager{
             }
         }
     }
-    Comparator<SpaceMarine> meleeWeaponComparator = new Comparator<SpaceMarine>() {
+/*    Comparator<SpaceMarine> meleeWeaponComparator = new Comparator<SpaceMarine>() {
         @Override
         public int compare(SpaceMarine o1, SpaceMarine o2) {
             return o1.getMeleeWeapon().compareTo(o2.getMeleeWeapon());
         }
-    };
+    };*/
 
 
     /**
@@ -218,7 +217,7 @@ public class CollectionManager{
         return spaceMarineCollection.size();
     }
     public Integer generateNextId(){
-        for(SpaceMarine spaceMarine :  spaceMarineCollection.values()) {
+        for(SpaceMarine spaceMarine : spaceMarineCollection.values()) {
             if (spaceMarine.getId() >= nextId) {
                 nextId = spaceMarine.getId();
             }

@@ -11,14 +11,9 @@ import java.util.Arrays;
  * show elements
  */
 public class Show extends Command{
-    private CommandManager commandManager;
-
-    public Show(CommandManager commandManager) {
-        this.commandManager = commandManager;
-    }
 
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "show";
     }
 

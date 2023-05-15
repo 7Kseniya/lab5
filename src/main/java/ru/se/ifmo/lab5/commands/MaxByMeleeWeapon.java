@@ -6,7 +6,7 @@ import ru.se.ifmo.lab5.utils.CommandManager;
 public class MaxByMeleeWeapon extends Command {
     CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "max_by_melee_weapon";
     }
 

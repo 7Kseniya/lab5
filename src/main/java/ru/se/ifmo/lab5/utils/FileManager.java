@@ -3,11 +3,8 @@ package ru.se.ifmo.lab5.utils;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import ru.se.ifmo.lab5.data.*;
-
 import java.io.*;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 
 /**
@@ -27,18 +24,18 @@ public class FileManager {
             IOHandler.println("your filename is: " + ANSI_GREEN + fileName);
             LinkedHashMap<Integer, SpaceMarine> collection = new LinkedHashMap<>();
             try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
-                String[] headers = csvReader.readNext();
+                //String[] headers = csvReader.readNext();
                 String[] fields;
                 while ((fields = csvReader.readNext()) != null) {
                     int id = Integer.parseInt(fields[0].trim());
-                    String name = fields[1].trim();
+                    String name = fields[1].strip();
                     float x = Float.parseFloat(fields[2].trim());
                     long y = Long.parseLong(fields[3].trim());
                     int health = Integer.parseInt(fields[4].trim());
                     boolean loyal = Boolean.parseBoolean(fields[5].trim());
-                    String category = fields[6].trim();
-                    String weapon = fields[7].trim();
-                    String chapterName = fields[8].trim();
+                    String category = fields[6].trim().toUpperCase();
+                    String weapon = fields[7].trim().toUpperCase();
+                    String chapterName = fields[8].strip();
                     int marinesCount = Integer.parseInt(fields[9].trim());
                     String world = fields[10].trim();
 

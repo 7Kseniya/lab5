@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class RemoveByKey extends Command{
     CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "remove_by_key";
     }
 

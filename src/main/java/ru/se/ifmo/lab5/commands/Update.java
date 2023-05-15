@@ -8,9 +8,8 @@ import ru.se.ifmo.lab5.utils.IOHandler;
 import java.util.Arrays;
 
 public class Update extends Command{
-    CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "update";
     }
 
@@ -29,6 +28,5 @@ public class Update extends Command{
         } catch (NumberOfArgsException e) {
             IOHandler.println("incorrect amount of args");
         }
-    }
     }
 }

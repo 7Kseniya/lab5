@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class RemoveLowerKey extends Command{
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "remove_lower_key";
     }
 

@@ -5,6 +5,8 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
+import static ru.se.ifmo.lab5.utils.CommandManager.commandMap;
+
 public class Help extends Command {
     CommandManager commandManager;
     @Override
@@ -18,9 +20,10 @@ public class Help extends Command {
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         try {
-            if (!(args.length == 0 | args.toString().trim().isEmpty())) throw new NumberOfArgsException();
-            for (Command command : commandManager.getAllCommands()){
-                IOHandler.println(ANSI_BLUE + getCommandName() + ANSI_RESET+ "::" + getDescription());
+            if ((args.length == 0 | args.toString().trim().isEmpty())) throw new NumberOfArgsException();
+            IOHandler.println(commandMap.values());
+            for (Command command : commandMap.values()){
+                IOHandler.println(ANSI_BLUE + command.getCommandName() + ANSI_RESET+ "::" + command.getDescription());
             }
         } catch (NumberOfArgsException e) {
             IOHandler.println(ANSI_RED + "incorrect number of args" + ANSI_RESET);

@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class FilterByHealth extends Command{
     CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "filter_by_health";
     }
     @Override

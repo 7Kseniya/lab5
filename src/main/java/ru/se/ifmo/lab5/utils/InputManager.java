@@ -1,12 +1,11 @@
 package ru.se.ifmo.lab5.utils;
 
 import ru.se.ifmo.lab5.exceptions.CommandNotFoundException;
-
 import java.io.*;
 import java.time.ZonedDateTime;
 
 public class InputManager {
-    public static void start(String[] args) throws IOException {
+    public static void start(String[] args) {
         FileManager fileManager = new FileManager();
         CommandManager commandManager = new CommandManager();
         fileManager.inputFile(args);
@@ -19,21 +18,23 @@ public class InputManager {
         BufferedReader reader = new BufferedReader(inputStream);
         while (true) {
             try {
-                IOHandler.println("> ");
-                String[] input = reader.readLine().toLowerCase().split(" ");
+                IOHandler.print(">> ");
 
-                if (!commandManager.hasCommand(input[0])) throw new CommandNotFoundException();
-                else {
+                String[] input = reader.readLine().toLowerCase().trim().split(" ");
+
+//                if (!commandManager.hasCommand(input[0])) throw new CommandNotFoundException();
+//                else {
                     commandManager.executeCommand(new CollectionManager(ZonedDateTime.now()), input, reader);
-                    commandManager.addToHistory(input[0]);
-                }
+                    commandManager.addToHistory(String.join(" ", input[0]));
+
+//                    commandManager.addToHistory(input[0]);
+//                }
             } catch (IOException e) {
                 IOHandler.println("there is no such command or your input is incorrect \nenter command 'help' to view available commands" );
-                break;
-            } catch (CommandNotFoundException e) {
-                IOHandler.println("command " + inputStream + "not found \nenter command 'help' to see available list of commands");
+//            } catch (CommandNotFoundException e) {
+//                IOHandler.println("command not found \nenter command 'help' to see available list of commands");
+//                break;
             }
         }
-
     }
 }

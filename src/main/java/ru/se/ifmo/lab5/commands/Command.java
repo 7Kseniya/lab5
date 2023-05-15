@@ -14,7 +14,7 @@ public abstract class Command implements CommandExecutor {
    public static final String ANSI_CYAN = "\u001B[36m";
 
 
-   abstract String getCommandName();
+   abstract public String getCommandName();
    abstract String getDescription();
 
 }

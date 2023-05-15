@@ -10,8 +10,5 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("if you need a help, use command" + ANSI_GREEN + "help" + ANSI_RESET);
         InputManager.start(args);
-
-
-
     }
 }

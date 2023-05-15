@@ -7,10 +7,6 @@ import ru.se.ifmo.lab5.utils.IOHandler;
 public class History extends Command{
     CommandManager commandManager;
 
-    public History(CommandManager commandManager) {
-        this.commandManager = commandManager;
-    }
-
     @Override
     public String getCommandName() {
         return "history";

@@ -11,7 +11,7 @@ import java.io.*;
  */
 public class ExecuteScript extends Command implements Serializable {
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "execute_script";
     }
 

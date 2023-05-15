@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class RemoveGreaterKey extends Command{
     CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "remove_greater_key";
     }
 
@@ -29,6 +29,5 @@ public class RemoveGreaterKey extends Command{
         } catch (NumberOfArgsException e) {
             IOHandler.println("incorrect amount of args");
         }
-    }
     }
 }

@@ -3,11 +3,14 @@ package ru.se.ifmo.lab5.utils;
 import ru.se.ifmo.lab5.commands.Command;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.*;
 
 public class CommandManager {
+    public static HashMap<String, Command> commandMap = new HashMap<>();
     /**
      *parse package and get all classes which extend Command
      * @return list of command classes
@@ -16,37 +19,50 @@ public class CommandManager {
         List<Class<? extends Command>> commands = new ArrayList<>();
         String packageName = "ru.se.ifmo.lab5.commands";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        //Package pkg = Package.getPackage(packageName);
-        Set<Class<?>> classes;
 
-        {
-            try {
-                classes = new HashSet<>(Arrays.asList(classLoader.loadClass(packageName).getDeclaredClasses()));
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
+
+        try {
+            Enumeration<URL> resources = classLoader.getResources(packageName.replace(".", "/"));
+            while (resources.hasMoreElements()) {
+                URL resource = resources.nextElement();
+                File directory = new File(resource.getFile());
+                if (directory.canRead()) {
+                    for (File file : directory.listFiles()) {
+                        String fileName = file.getName();
+                        if (fileName.endsWith(".class") && !fileName.contains("$")) {
+                            String className = packageName + "." + fileName.substring(0, fileName.length() - 6);
+                            try {
+                                Class<?> clazz = classLoader.loadClass(className);
+                                if (Command.class.isAssignableFrom(clazz)) {
+                                    commands.add(clazz.asSubclass(Command.class));
+                                }
+                            } catch (ClassNotFoundException e) {
+                                IOHandler.println("parse package error");
+                            }
+                        }
+                    }
+                }
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        for(Class<?> clazz : classes) {
-            if (Command.class.isAssignableFrom(clazz)) {
-                commands.add(clazz.asSubclass(Command.class));
-            }
-        }
+
         return commands;
     }
+
 
     public void getCommandInstance(){
         List<Class<? extends Command>> commandClasses = getCommandClasses();
 
         for (Class<? extends Command> commandClass : commandClasses) {
             try {
-                Command command = commandClass.getDeclaredConstructor().newInstance();
-                commandMap.put(command.getClass().getName(), command);
+                Command command =(Command) commandClass.getDeclaredConstructor().newInstance();
+                commandMap.put(command.getCommandName(), command);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 IOHandler.println("failed to create command instances");
             }
         }
     }
-    HashMap<String, Command> commandMap = new HashMap<>();
 
     public boolean hasCommand(String commandName) {
         return commandMap.containsKey(commandName);
@@ -62,12 +78,18 @@ public class CommandManager {
                 if (command == null) {
                     IOHandler.println("unknown command");
                 } else {
-                    command.execute(collectionManager, Arrays.copyOfRange(args, 1, args.length));
-                    addToHistory(String.join(" ", args));
-                    break;
+                    IOHandler.println(Arrays.copyOfRange(args, 1, args.length));
+                    if (args.length > 1){
+                        command.execute(collectionManager, Arrays.copyOfRange(args, 1, args.length));
+                    }else{
+                        command.execute(collectionManager, args);
+                    }
+
+//                    addToHistory(String.join(" ", args[0]));
                 }
             } catch (Exception e) {
-                IOHandler.println("incorrect command parameters \ntry again");
+                IOHandler.println("incorrect command parameters \ntry again\n" + e.getMessage());
+                e.printStackTrace();
             }
             try {
                 args = reader.readLine().toLowerCase().split(" ");

@@ -7,7 +7,7 @@ import ru.se.ifmo.lab5.utils.IOHandler;
 public class Exit extends Command{
     CommandManager commandManager;
     @Override
-    String getCommandName() {
+    public String getCommandName() {
         return "exit";
     }
 
