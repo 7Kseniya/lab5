@@ -22,7 +22,8 @@ public class RemoveGreaterKey extends Command{
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         try {
-            if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
+            if(args.length == 0 ) throw new NumberOfArgsException();
+            if(args.length < 1) throw new ArrayIndexOutOfBoundsException();
             Integer id = Integer.parseInt(Arrays.toString(args));
             collectionManager.removeGreater(id);
             IOHandler.println("element removed");

@@ -44,7 +44,7 @@ public class CommandManager {
                 }
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            IOHandler.println("parse package error");
         }
 
         return commands;
@@ -59,7 +59,7 @@ public class CommandManager {
                 Command command =(Command) commandClass.getDeclaredConstructor().newInstance();
                 commandMap.put(command.getCommandName(), command);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                IOHandler.println("failed to create command instances");
+                IOHandler.println("failed to create command instances" + e.getMessage());
             }
         }
     }
@@ -98,7 +98,7 @@ public class CommandManager {
             }
         }
     }
-    private PriorityQueue<String> commandHistory;
+    public PriorityQueue<String> commandHistory = new PriorityQueue<>();
     public PriorityQueue<String> getCommandHistory() {
         return commandHistory;
     }
@@ -107,9 +107,7 @@ public class CommandManager {
      * @param command
      */
     public void addToHistory(String command){
-        if (commandHistory.size() == 11) {
-            commandHistory.poll();
-        }
+        if (commandHistory.size() == 11) commandHistory.poll();
         commandHistory.add(command);
     }
     public String getHistory() {

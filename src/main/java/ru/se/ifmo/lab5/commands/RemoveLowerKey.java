@@ -19,12 +19,15 @@ public class RemoveLowerKey extends Command{
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         try {
-            if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
-            Integer id = Integer.parseInt(Arrays.toString(args));
+            if(args.length == 0 ) throw new NumberOfArgsException();
+            if(args.length < 1) throw new ArrayIndexOutOfBoundsException();
+            Integer id = Integer.parseInt(args[0]);
             collectionManager.removeLower(id);
             IOHandler.println("element removed");
         } catch (NumberOfArgsException e) {
             IOHandler.println("incorrect amount of args");
+        } catch (NumberFormatException e){
+            IOHandler.println("number format error");
         }
     }
 }

@@ -1,9 +1,13 @@
 package ru.se.ifmo.lab5.data;
 
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class SpaceMarine implements Comparable<SpaceMarine>{
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -129,18 +133,18 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
 
     @Override
     public String toString() {
-        return "id: " + id  +
+        return ANSI_BLUE +"id: " + id  + ANSI_RESET +
                 "\nname: " + name +
                 "\ncoordinates: \nx = " + coordinates.getX() +
                 "\ny = " + coordinates.getY() +
-                "\ncreationDate: " + creationDate +
+                "\ncreationDate: " + creationDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +
                 "\nhealth: " + health  +
                 "\nloyal: " + loyal  +
                 "\ncategory: " + category +
                 "\nmeleeWeapon: " + meleeWeapon +
                 "\nchapter: \nname: " + chapter.getName() +
                 "\nmarinesCount: " + chapter.getMarinesCount() +
-                "\nworld: " + chapter.getWorld();
+                "\nworld: " + chapter.getWorld() + "\n";
     }
     public String[] getAll() {
         return new String[]{String.valueOf(this.id), String.valueOf(this.name), String.valueOf(this.coordinates),

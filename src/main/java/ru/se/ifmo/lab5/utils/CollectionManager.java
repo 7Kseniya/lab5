@@ -18,12 +18,16 @@ import java.util.*;
  */
 public class CollectionManager{
     private Integer nextId = 1;
-    public LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection;
+    private LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection;
     private final ZonedDateTime creationDate;
-    Creator creator = new Creator();
 
-    public CollectionManager(ZonedDateTime creationDate) {
+    public CollectionManager(LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection, ZonedDateTime creationDate) {
         this.creationDate = ZonedDateTime.now();
+        this.spaceMarineCollection = spaceMarineCollection;
+    }
+
+    public LinkedHashMap<Integer, SpaceMarine> getSpaceMarineCollection() {
+        return spaceMarineCollection;
     }
 
     /**
@@ -75,7 +79,7 @@ public class CollectionManager{
             try{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId().equals(id)){
-                    spaceMarineCollection.replace(id, spaceMarine);
+                    this.spaceMarineCollection.replace(id, spaceMarine);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -95,7 +99,7 @@ public class CollectionManager{
             try{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId().equals(id)){
-                    spaceMarineCollection.remove(id);
+                    this.spaceMarineCollection.remove(id);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -115,7 +119,7 @@ public class CollectionManager{
             try{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() > id){
-                    spaceMarineCollection.remove(id);
+                    this.spaceMarineCollection.remove(id);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -136,7 +140,7 @@ public class CollectionManager{
             try{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() < id){
-                    spaceMarineCollection.remove(id);
+                    this.spaceMarineCollection.remove(id);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -186,8 +190,9 @@ public class CollectionManager{
     /**
      * save collection to file
      */
-    public void save(String args){
-        File outputFile = new File(args);
+    public void save(){
+        String path = "file.csv";
+        File outputFile = new File(path);
         try {
             StringBuilder csv = new StringBuilder();
             for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
@@ -228,21 +233,33 @@ public class CollectionManager{
     /**
      * get fields of collection
      */
-    public void getFields(){
+/*    public void getFields(){
         Field[] fields = spaceMarineCollection.getClass().getDeclaredFields();
         Set<String> fieldsNames = new HashSet<>();
-        for (Field field : fields){
+        for (Field field : fields) {
             fieldsNames.add(field.getName());
-            if(fieldsNames.size() == fields.length){
+        }
+        if (fieldsNames.size() == fields.length) {
+            for (Field field : fields) {
                 IOHandler.println("field: " + field.getName());
-            }else{
-                IOHandler.println("incorrect amount of fields");
-
             }
-
+        } else {
+            IOHandler.println("incorrect amount of fields");
+        }
+    }*/
+    public void getFields() {
+        Field[] fields = spaceMarineCollection.getClass().getDeclaredFields();
+        StringBuilder sb = new StringBuilder();
+        for (Field field : fields) {
+            sb.append(field.getName()).append(", ");
+        }
+        if (sb.length() > 0) {
+            sb.setLength(sb.length() - 2);
+            IOHandler.println("Fields: " + sb.toString());
+        } else {
+            IOHandler.println("No fields found");
         }
     }
-
 
 
 }

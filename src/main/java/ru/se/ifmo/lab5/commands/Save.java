@@ -24,8 +24,8 @@ public class Save extends Command{
             if (args.length == 0) {
                 throw new NumberOfArgsException();
             }
-            collectionManager.save(args[0].trim());
-            IOHandler.println(ANSI_GREEN + "collection successfully saved to file " + args[0] + ANSI_RESET);
+            collectionManager.save();
+            IOHandler.println(ANSI_GREEN + "collection successfully saved to file " + "" + ANSI_RESET);
         } catch (NumberOfArgsException e) {
             IOHandler.println(ANSI_RED + "file is not exist" + ANSI_RESET);
         }

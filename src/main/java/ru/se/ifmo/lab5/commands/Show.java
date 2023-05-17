@@ -25,7 +25,7 @@ public class Show extends Command{
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
         try {
-            if(args.length !=0) throw new NumberOfArgsException();
+            if(args.length ==0) throw new NumberOfArgsException();
             collectionManager.show();
         } catch (NumberOfArgsException e) {
             IOHandler.println(ANSI_RED + "incorrect amount of args" + ANSI_RESET);

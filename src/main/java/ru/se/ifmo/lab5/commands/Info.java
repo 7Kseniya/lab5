@@ -25,9 +25,9 @@ public class Info extends Command{
         }else{
             CommandManager commandManager = new CommandManager();
             IOHandler.println(ANSI_BLUE + "number of elements in the collection: " + ANSI_RESET + collectionManager.getSize());
-            IOHandler.println(ANSI_BLUE + "collection initialization date: " + ANSI_RESET + collectionManager.getCreationDate());
-            IOHandler.print("fields of collection: " + ANSI_MAGENTA);
-            collectionManager.getFields();
+            IOHandler.println(ANSI_BLUE + "collection creation date: " + ANSI_RESET + collectionManager.getCreationDate());
+            //IOHandler.print("fields of collection: " + ANSI_MAGENTA);
+            //collectionManager.getFields();
             commandManager.addToHistory(getCommandName());
         }
     }

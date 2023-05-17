@@ -14,15 +14,14 @@ public class FileManager {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-
-    public void inputFile(String[] args){
+    //LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection = new LinkedHashMap<>();
+    public void inputFile(CollectionManager collectionManager, String[] args){
         try {
             //check if the filename is passed as an argument
             File fileName = new File(args[0].strip());
             if (!fileName.exists()) throw new FileNotFoundException();
             if(!fileName.canRead()) IOHandler.println(ANSI_RED + "access denied" + ANSI_RESET);
-            IOHandler.println("your filename is: " + ANSI_GREEN + fileName);
-            LinkedHashMap<Integer, SpaceMarine> collection = new LinkedHashMap<>();
+            IOHandler.println("your filename is: " + ANSI_GREEN + fileName + ANSI_RESET);
             try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
                 //String[] headers = csvReader.readNext();
                 String[] fields;
@@ -32,14 +31,14 @@ public class FileManager {
                     float x = Float.parseFloat(fields[2].trim());
                     long y = Long.parseLong(fields[3].trim());
                     int health = Integer.parseInt(fields[4].trim());
-                    boolean loyal = Boolean.parseBoolean(fields[5].trim());
+                    boolean loyal = Boolean.parseBoolean(fields[5].trim().toUpperCase());
                     String category = fields[6].trim().toUpperCase();
                     String weapon = fields[7].trim().toUpperCase();
                     String chapterName = fields[8].strip();
                     int marinesCount = Integer.parseInt(fields[9].trim());
                     String world = fields[10].trim();
 
-                    SpaceMarine marine = new SpaceMarine(
+                    SpaceMarine spaceMarine = new SpaceMarine(
                             id, name,
                             new Coordinates(x, y),
                             ZonedDateTime.now(),
@@ -47,14 +46,12 @@ public class FileManager {
                             AstartesCategory.valueOf(category),
                             MeleeWeapon.valueOf(weapon),
                             new Chapter(chapterName, marinesCount, world));
-                    collection.put(id, marine);
+                    collectionManager.getSpaceMarineCollection().put(id, spaceMarine);
                 }
             }
 
-            IOHandler.println("collection size: " + collection.size());
-            for (SpaceMarine marine : collection.values()) {
-                IOHandler.println(marine.toString());
-            }
+            IOHandler.println("collection size: " + collectionManager.getSize());
+            IOHandler.println("collection successfully loaded");
 
         } catch (FileNotFoundException e) {
             IOHandler.println(ANSI_RED + "file " + args[0] + "not found" + ANSI_RESET);
@@ -65,11 +62,7 @@ public class FileManager {
         }
     }
 
-    /**
-     * method to write collection to file (сейчас не надо, для следующей лабы)
-     * @param collection
-     * @param fileName
-     */
+
    /* public static void writeCollectionToCsv(LinkedHashMap<Integer, SpaceMarine> collection, String fileName) {
         try (BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(fileName))) {
             for (SpaceMarine spaceMarine : collection.values()) {

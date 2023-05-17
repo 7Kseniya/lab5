@@ -20,7 +20,7 @@ public class Chapter {
         }else{
             IOHandler.println("incorrect value of 'name'");
         }
-        if(!(marinesCount == null | getMarinesCount()<0 | getMarinesCount()>1000)){
+        if(!(marinesCount == null)){
             this.marinesCount = marinesCount;
         }else{
             IOHandler.println("param 'marine count is null");

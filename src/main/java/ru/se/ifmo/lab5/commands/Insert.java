@@ -29,7 +29,8 @@ public class Insert extends Command {
             Integer id = collectionManager.generateNextId();
             SpaceMarine spaceMarine = new SpaceMarine(id, creator.createName(), creator.createCoordinates(),
                     creator.createDate(), creator.createHealth(), creator.createLoyal(), creator.chooseAstarters(), creator.chooseMeleeWeapon(), creator.createChapter());
-            collectionManager.spaceMarineCollection.put(id, spaceMarine);
+            collectionManager.getSpaceMarineCollection().put(id, spaceMarine);
+            IOHandler.println(spaceMarine.toString());
             IOHandler.println(ANSI_GREEN + "command " + getCommandName() + " completed successfully" + ANSI_RESET);
         } catch (NumberOfArgsException e) {
             IOHandler.println(ANSI_RED + "incorrect number of args" + ANSI_RESET);

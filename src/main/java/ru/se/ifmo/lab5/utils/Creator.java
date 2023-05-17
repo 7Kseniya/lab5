@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-
 import static java.lang.Integer.*;
 
 /**
@@ -42,10 +41,10 @@ public class Creator {
             name = bufferedReader.readLine();
             if(name.trim().isEmpty()) throw new InvalidValueException();
         } catch (IOException e) {
-            IOHandler.println(ANSI_RED + "" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "smth went wrong" + ANSI_RESET);
             name = createName();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "name can't be empty" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "[name] can't be empty" + ANSI_RESET);
             name = createName();
         }
         return name;
@@ -62,15 +61,15 @@ public class Creator {
         try{
             IOHandler.println(ANSI_BLUE + "enter coordinates: \nx = " + ANSI_RESET);
             x = Float.parseFloat(bufferedReader.readLine().trim());
-            IOHandler.println("y = ");
+            IOHandler.println(ANSI_BLUE + "y = " + ANSI_RESET);
             y = Long.parseLong(bufferedReader.readLine().trim());
-            if(x<345 || y<-975) throw new InvalidValueException();
+            if(x>345 || y<-975) throw new InvalidValueException();
             coordinates = new Coordinates(x, y);
         } catch (NumberFormatException | IOException e) {
             IOHandler.println(ANSI_RED + "invalid data format" + ANSI_RESET);
             coordinates = createCoordinates();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "'x' must be over 345 and 'y' must be over -975" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "[x] must be less than 345 and [y] must be over -975" + ANSI_RESET);
             coordinates = createCoordinates();
         }
         return coordinates;
@@ -94,7 +93,6 @@ public class Creator {
             IOHandler.println(ANSI_RED + "invalid creation date format" + ANSI_RESET);
             creationDate = createDate();
         }
-
         return creationDate;
     }
 
@@ -104,7 +102,7 @@ public class Creator {
      */
 
     public AstartesCategory chooseAstarters(){
-        AstartesCategory category = null;
+        AstartesCategory category;
         try{
             IOHandler.println(ANSI_BLUE + "choose astarters category from the list:" + ANSI_RESET+
                     "\nSCOUT \nLIBRARIAN \nCHAPLAIN");
@@ -114,6 +112,7 @@ public class Creator {
             category = chooseAstarters();
         } catch (IllegalArgumentException e){
             IOHandler.println(ANSI_RED + "entered non-existent value \nchoose from the options" + ANSI_RESET);
+            category = chooseAstarters();
         }
         return category;
     }
@@ -123,15 +122,17 @@ public class Creator {
      * @return ru.se.ifmo.lab5.data.MeleeWeapon
      */
     public MeleeWeapon chooseMeleeWeapon(){
-        MeleeWeapon meleeWeapon = null;
+        MeleeWeapon meleeWeapon;
         try{
             IOHandler.println(ANSI_BLUE + "choose melee weapon from the list:" + ANSI_RESET+
                     "\nCHAIN_SWORD \nCHAIN_AXE \nMANREAPER \nLIGHTING_CLAW \nPOWER_BLADE");
             meleeWeapon = MeleeWeapon.valueOf(bufferedReader.readLine().trim().toUpperCase());
         } catch (IllegalArgumentException e) {
             IOHandler.println(ANSI_RED + "entered non-existent value \nchoose from the options" + ANSI_RESET);
+            meleeWeapon = chooseMeleeWeapon();
         } catch (IOException e) {
             IOHandler.println(ANSI_RED + "" + ANSI_RESET);
+            meleeWeapon = chooseMeleeWeapon();
         }
         return meleeWeapon;
     }
@@ -164,15 +165,17 @@ public class Creator {
      * @return Boolean loyal
      */
     public Boolean createLoyal(){
-        Boolean loyal = null;
+        Boolean loyal;
         try{
-            IOHandler.println(ANSI_BLUE + "enter loyal value [TRUE/FALSE]: " + ANSI_RESET);
+            IOHandler.println(ANSI_BLUE + "enter loyal value [true/false]: " + ANSI_RESET);
             loyal = Boolean.parseBoolean(bufferedReader.readLine().trim().toUpperCase());
-            if(loyal == Boolean.TRUE | Boolean.FALSE) throw new InvalidValueException();
+            if(!(loyal.equals(Boolean.TRUE) | loyal.equals(Boolean.FALSE))) throw new InvalidValueException();
         } catch (InvalidValueException e) {
             IOHandler.println(ANSI_RED + "'loyal' can't be null " + ANSI_RESET);
+            loyal = createLoyal();
         } catch (IOException e) {
-            IOHandler.println(ANSI_RED + "" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "smth went wrong" + ANSI_RESET);
+            loyal = createLoyal();
         }
         return loyal;
     }
@@ -194,9 +197,8 @@ public class Creator {
             marinesCount = parseInt(bufferedReader.readLine().trim());
             IOHandler.println(ANSI_BLUE + "enter chapter world: " + ANSI_RESET);
             world = bufferedReader.readLine().trim();
-            if(name.isBlank() | !(marinesCount > 0) | marinesCount > 1000) throw new InvalidValueException();
+            if(name.isBlank() | (marinesCount < 0) | marinesCount > 1000) throw new InvalidValueException();
             chapter = new Chapter(name, marinesCount, world);
-
         } catch (NumberFormatException | IOException e) {
             IOHandler.println(ANSI_RED + "invalid data format: 'marines count' must be integer " + ANSI_RESET);
             chapter = createChapter();
@@ -205,11 +207,7 @@ public class Creator {
                     "\n'marines count' must be over 0 and no more then 1000" + ANSI_RESET);
             chapter = createChapter();
         }
-
         return chapter;
     }
-
-
-
 
 }

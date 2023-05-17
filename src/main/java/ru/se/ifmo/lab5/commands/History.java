@@ -22,11 +22,9 @@ public class History extends Command{
      */
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-        if(args.length > 0){
-            IOHandler.println(ANSI_RED + "incorrect command format"+ ANSI_RESET);
-        }else{
-            IOHandler.print(ANSI_BLUE + "Last 11 commands: " + ANSI_RESET);
-            commandManager.getHistory();
-        }
+        if(args == null) IOHandler.println(ANSI_RED + "incorrect command format"+ ANSI_RESET);
+        IOHandler.print(ANSI_BLUE + "Last 11 commands: " + ANSI_RESET);
+        commandManager.getHistory();
+
     }
 }

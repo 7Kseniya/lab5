@@ -5,6 +5,8 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
+import java.util.Arrays;
+
 public class PrintAscending extends Command{
     CommandManager commandManager;
     @Override
@@ -19,13 +21,12 @@ public class PrintAscending extends Command{
 
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-        if(args.length != 0) try {
-            throw new NumberOfArgsException();
-        } catch (NumberOfArgsException e) {
-            throw new RuntimeException(e);
-        }
-        else{
+        try {
+            if(args.length != 0 ) throw new NumberOfArgsException();
             collectionManager.printAscending();
+            IOHandler.println("element removed");
+        } catch (NumberOfArgsException e) {
+            IOHandler.println("incorrect amount of args");
         }
     }
 }
