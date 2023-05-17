@@ -11,6 +11,12 @@ import java.util.*;
 
 public class CommandManager {
     public static HashMap<String, Command> commandMap = new HashMap<>();
+    private PriorityQueue<String> commandHistory;
+
+    public CommandManager(PriorityQueue<String> commandHistory) {
+        this.commandHistory = commandHistory;
+    }
+
     /**
      *parse package and get all classes which extend Command
      * @return list of command classes
@@ -84,6 +90,8 @@ public class CommandManager {
                     }else{
                         command.execute(collectionManager, args);
                     }
+                    addToHistory(command.getCommandName());
+                    IOHandler.println(commandHistory);
 
 //                    addToHistory(String.join(" ", args[0]));
                 }
@@ -98,7 +106,7 @@ public class CommandManager {
             }
         }
     }
-    public PriorityQueue<String> commandHistory = new PriorityQueue<>();
+
     public PriorityQueue<String> getCommandHistory() {
         return commandHistory;
     }
@@ -107,13 +115,8 @@ public class CommandManager {
      * @param command
      */
     public void addToHistory(String command){
-        if (commandHistory.size() == 11) commandHistory.poll();
+        if (commandHistory.size() == 11) commandHistory.peek();
         commandHistory.add(command);
     }
-    public String getHistory() {
-        StringBuilder builder = new StringBuilder();
-        for (String string : getCommandHistory())
-            builder.append(string).append("\n");
-        return builder.toString();
-    }
+
 }

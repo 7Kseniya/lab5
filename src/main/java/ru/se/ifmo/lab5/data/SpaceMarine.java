@@ -152,6 +152,23 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
                 String.valueOf(this.category), String.valueOf(this.meleeWeapon), String.valueOf(chapter.getName()),
                 String.valueOf(chapter.getWorld()), String.valueOf(chapter.getMarinesCount())};
     }
+    public String[] getValues() {
+        return new String[]{
+                id.toString(),
+                name,
+                coordinates.getX().toString(),
+                Long.toString(coordinates.getY()),
+                creationDate.toString(),
+                health.toString(),
+                loyal.toString(),
+                category.toString(),
+                meleeWeapon.toString(),
+                chapter.getName(),
+                Integer.toString(chapter.getMarinesCount()),
+                chapter.getWorld()
+        };
+    }
+
 
 }
 

@@ -23,12 +23,10 @@ public class Info extends Command{
         if(args[0] == null) {
             IOHandler.println(ANSI_RED + "incorrect number of args " + ANSI_RESET);
         }else{
-            CommandManager commandManager = new CommandManager();
             IOHandler.println(ANSI_BLUE + "number of elements in the collection: " + ANSI_RESET + collectionManager.getSize());
             IOHandler.println(ANSI_BLUE + "collection creation date: " + ANSI_RESET + collectionManager.getCreationDate());
             //IOHandler.print("fields of collection: " + ANSI_MAGENTA);
             //collectionManager.getFields();
-            commandManager.addToHistory(getCommandName());
         }
     }
 }

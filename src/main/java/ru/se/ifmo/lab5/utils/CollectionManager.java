@@ -50,27 +50,6 @@ public class CollectionManager{
     }
 
     /**
-     * insert an object of class spaceMarine into collection
-     */
-/*    public void insert(){
-        for (SpaceMarine spaceMarine : spaceMarineCollection.values()){
-            try{
-                Integer id = generateNextId();
-                if(id == null) throw new NullPointerException();
-                if(spaceMarine.getId() == null){
-                    creator.createSpaceMarine();
-                    spaceMarineCollection.put(id, spaceMarine);
-                }else{
-                    throw new InvalidCollectionElemId();
-                }
-            }catch (InvalidCollectionElemId e){
-                IOHandler.println("there is no element with that id");
-            }catch (NullPointerException e){
-                IOHandler.println("specified id is null");
-            }
-        }
-    }*/
-    /**
      * update an element of collection by id
      * @param id
      */
@@ -196,7 +175,7 @@ public class CollectionManager{
         try {
             StringBuilder csv = new StringBuilder();
             for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
-                String[] row = spaceMarine.getAll();
+                String[] row = spaceMarine.getValues();
                 csv.append(String.join(",", row));
                 csv.append("\n");
             }
@@ -260,6 +239,7 @@ public class CollectionManager{
             IOHandler.println("No fields found");
         }
     }
+
 
 
 }

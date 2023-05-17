@@ -5,7 +5,6 @@ import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
 public class History extends Command{
-    CommandManager commandManager;
 
     @Override
     public String getCommandName() {
@@ -22,9 +21,8 @@ public class History extends Command{
      */
     @Override
     public void execute(CollectionManager collectionManager, String[] args) {
-        if(args == null) IOHandler.println(ANSI_RED + "incorrect command format"+ ANSI_RESET);
+        if(args.length != 1) IOHandler.println(ANSI_RED + "incorrect command format"+ ANSI_RESET);
         IOHandler.print(ANSI_BLUE + "Last 11 commands: " + ANSI_RESET);
-        commandManager.getHistory();
 
     }
 }
