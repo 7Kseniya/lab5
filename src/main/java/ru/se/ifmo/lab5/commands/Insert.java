@@ -3,6 +3,7 @@ package ru.se.ifmo.lab5.commands;
 import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
+import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.Creator;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
@@ -22,7 +23,7 @@ public class Insert extends Command {
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try{
             Creator creator = new Creator();
             if(args.length == 0) throw new NumberOfArgsException();

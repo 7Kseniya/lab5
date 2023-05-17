@@ -17,7 +17,6 @@ public class FileManager {
     //LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection = new LinkedHashMap<>();
     public void inputFile(CollectionManager collectionManager, String[] args){
         try {
-            //check if the filename is passed as an argument
             File fileName = new File(args[0].strip());
             if (!fileName.exists()) throw new FileNotFoundException();
             if(!fileName.canRead()) IOHandler.println(ANSI_RED + "access denied" + ANSI_RESET);

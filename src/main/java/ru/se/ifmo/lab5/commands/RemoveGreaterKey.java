@@ -20,7 +20,7 @@ public class RemoveGreaterKey extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if(args.length == 0 ) throw new NumberOfArgsException();
             if(args.length < 1) throw new ArrayIndexOutOfBoundsException();

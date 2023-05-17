@@ -2,8 +2,8 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
+import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
-import java.util.Arrays;
 
 public class RemoveLowerKey extends Command{
     @Override
@@ -17,7 +17,7 @@ public class RemoveLowerKey extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if(args.length == 0 ) throw new NumberOfArgsException();
             if(args.length < 1) throw new ArrayIndexOutOfBoundsException();

@@ -1,7 +1,5 @@
 package ru.se.ifmo.lab5.commands;
 
-import ru.se.ifmo.lab5.data.SpaceMarine;
-import ru.se.ifmo.lab5.exceptions.InvalidValueException;
 import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
@@ -22,7 +20,7 @@ public class RemoveByKey extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if(args.length == 0 ) throw new NumberOfArgsException();
             if(args.length < 1) throw new ArrayIndexOutOfBoundsException();

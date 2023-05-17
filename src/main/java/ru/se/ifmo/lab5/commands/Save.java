@@ -3,8 +3,6 @@ package ru.se.ifmo.lab5.commands;
 import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
 import ru.se.ifmo.lab5.utils.*;
 
-import java.io.FileNotFoundException;
-
 public class Save extends Command{
 
 
@@ -19,7 +17,7 @@ public class Save extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if (args.length == 0) {
                 throw new NumberOfArgsException();

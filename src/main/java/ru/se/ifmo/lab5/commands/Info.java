@@ -2,7 +2,6 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
-import ru.se.ifmo.lab5.utils.Creator;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
 /**
@@ -19,7 +18,7 @@ public class Info extends Command{
         return "show information about collection (type, initialization date, amount of elements)";
     }
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         if(args[0] == null) {
             IOHandler.println(ANSI_RED + "incorrect number of args " + ANSI_RESET);
         }else{

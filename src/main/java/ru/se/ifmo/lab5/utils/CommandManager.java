@@ -77,7 +77,7 @@ public class CommandManager {
     public Collection<Command> getAllCommands() {
         return commandMap.values();
     }
-    public void executeCommand(CollectionManager collectionManager, String[] args, BufferedReader reader){
+    public void executeCommand(CollectionManager collectionManager, CommandManager commandManager, String[] args, BufferedReader reader){
         while (true) {
             try {
                 Command command = commandMap.get(args[0]);
@@ -86,14 +86,11 @@ public class CommandManager {
                 } else {
                     IOHandler.println(Arrays.copyOfRange(args, 1, args.length));
                     if (args.length > 1){
-                        command.execute(collectionManager, Arrays.copyOfRange(args, 1, args.length));
+                        command.execute(collectionManager, commandManager, Arrays.copyOfRange(args, 1, args.length));
                     }else{
-                        command.execute(collectionManager, args);
+                        command.execute(collectionManager, commandManager, args);
                     }
                     addToHistory(command.getCommandName());
-                    IOHandler.println(commandHistory);
-
-//                    addToHistory(String.join(" ", args[0]));
                 }
             } catch (Exception e) {
                 IOHandler.println("incorrect command parameters \ntry again\n" + e.getMessage());

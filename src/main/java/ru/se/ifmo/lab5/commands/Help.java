@@ -18,7 +18,7 @@ public class Help extends Command {
         return "show a list of available commands";
     }
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if ((args.length == 0 | args.toString().trim().isEmpty())) throw new NumberOfArgsException();
             IOHandler.println(commandMap.values());

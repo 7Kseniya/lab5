@@ -17,7 +17,7 @@ public class Clear extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         collectionManager.clear();
         IOHandler.println("collection cleared");
 

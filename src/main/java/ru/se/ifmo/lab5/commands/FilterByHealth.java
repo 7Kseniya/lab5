@@ -19,7 +19,7 @@ public class FilterByHealth extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
             Integer health = Integer.parseInt(Arrays.toString(args));

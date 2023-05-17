@@ -32,14 +32,8 @@ public class InputManager {
                 IOHandler.print(">> ");
 
                 String[] input = reader.readLine().toLowerCase().trim().split(" ");
+                commandManager.executeCommand(collectionManager, commandManager, input, reader);
 
-//                if (!commandManager.hasCommand(input[0])) throw new CommandNotFoundException();
-//                else {
-                    commandManager.executeCommand(collectionManager, input, reader);
-                    //commandManager.addToHistory(input[0]);
-
-//                    commandManager.addToHistory(input[0]);
-//                }
             } catch (IOException e) {
                 IOHandler.println("there is no such command or your input is incorrect \nenter command" + ANSI_BLUE + "help" + ANSI_RESET + "to view available commands" );
 //            } catch (CommandNotFoundException e) {

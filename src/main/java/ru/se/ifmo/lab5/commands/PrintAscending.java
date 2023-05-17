@@ -5,8 +5,6 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
-import java.util.Arrays;
-
 public class PrintAscending extends Command{
     CommandManager commandManager;
     @Override
@@ -20,7 +18,7 @@ public class PrintAscending extends Command{
     }
 
     @Override
-    public void execute(CollectionManager collectionManager, String[] args) {
+    public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if(args.length != 0 ) throw new NumberOfArgsException();
             collectionManager.printAscending();
