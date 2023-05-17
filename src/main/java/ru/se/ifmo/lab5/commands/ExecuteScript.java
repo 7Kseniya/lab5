@@ -58,7 +58,7 @@ public class ExecuteScript extends Command implements Serializable {
                             commandManager.addToHistory(line[0]);
                         }
                     } catch (NumberOfArgsException e) {
-                        IOHandler.println("incorrect command parameters \ntry again\n" + e.getMessage());
+                        IOHandler.println(ANSI_RED + "incorrect command parameters \ntry again\n" + e.getMessage() + ANSI_RESET);
                         e.printStackTrace();
                     }
                 }

@@ -20,11 +20,10 @@ public class PrintAscending extends Command{
     @Override
     public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
-            if(args.length != 0 ) throw new NumberOfArgsException();
+            if(args.length == 0 ) throw new NumberOfArgsException();
             collectionManager.printAscending();
-            IOHandler.println("element removed");
         } catch (NumberOfArgsException e) {
-            IOHandler.println("incorrect amount of args");
+            IOHandler.println(ANSI_RED + "incorrect amount of args" + ANSI_RESET);
         }
     }
 }

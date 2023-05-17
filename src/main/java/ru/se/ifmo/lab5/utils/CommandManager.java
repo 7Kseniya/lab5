@@ -65,7 +65,7 @@ public class CommandManager {
                 Command command =(Command) commandClass.getDeclaredConstructor().newInstance();
                 commandMap.put(command.getCommandName(), command);
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                IOHandler.println("failed to create command instances" + e.getMessage());
+                IOHandler.println("failed to create command instances ([null] means it's all right)" + e.getMessage());
             }
         }
     }

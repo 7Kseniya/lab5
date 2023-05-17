@@ -5,8 +5,6 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
-import java.util.Arrays;
-
 public class Update extends Command{
     @Override
     public String getCommandName() {
@@ -21,12 +19,13 @@ public class Update extends Command{
     @Override
     public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
-            if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
-            Integer id = Integer.parseInt(Arrays.toString(args));
+            if(args.length == 0) throw new NumberOfArgsException();
+            Integer id = Integer.parseInt(args[0]);
             collectionManager.update(id);
-            IOHandler.println("collection element updated successfully");
         } catch (NumberOfArgsException e) {
-            IOHandler.println("incorrect amount of args");
+            IOHandler.println(ANSI_RED + "incorrect amount of args" + ANSI_RESET);
+        } catch (NumberFormatException e){
+            IOHandler.println(ANSI_RED + "number format error" + ANSI_RESET);
         }
     }
 }

@@ -21,12 +21,14 @@ public class FilterByHealth extends Command{
     @Override
     public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
-            if(args.length !=1 || args[0].trim().isEmpty()) throw new NumberOfArgsException();
-            Integer health = Integer.parseInt(Arrays.toString(args));
+            if(args.length == 0) throw new NumberOfArgsException();
+            Integer health = Integer.parseInt(args[0]);
             IOHandler.println(ANSI_BLUE + "collection element with health == " + health + ANSI_RESET);
             collectionManager.filterByHealth(health);
         } catch (NumberOfArgsException e) {
             IOHandler.println(ANSI_RED + "incorrect amount of args" + ANSI_RESET);
+        } catch (NumberFormatException e){
+            IOHandler.println(ANSI_RED + "number format error" + ANSI_RESET);
         }
     }
 }

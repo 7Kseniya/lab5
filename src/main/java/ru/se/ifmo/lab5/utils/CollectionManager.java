@@ -59,6 +59,7 @@ public class CollectionManager{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId().equals(id)){
                     this.spaceMarineCollection.replace(id, spaceMarine);
+                    IOHandler.println("collection element updated successfully");
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -99,6 +100,7 @@ public class CollectionManager{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() > id){
                     this.spaceMarineCollection.remove(id);
+                    IOHandler.println("element removed");
                 }else{
                     throw new InvalidCollectionElemId();
                 }
@@ -120,6 +122,7 @@ public class CollectionManager{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() < id){
                     this.spaceMarineCollection.remove(id);
+                    IOHandler.println("element removed");
                 }else{
                     throw new InvalidCollectionElemId();
                 }

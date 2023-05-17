@@ -29,6 +29,8 @@ public class RemoveByKey extends Command{
             IOHandler.println("element removed");
         } catch (NumberOfArgsException e) {
             IOHandler.println("incorrect amount of args");
+        }catch (NumberFormatException e){
+            IOHandler.println("number format error");
         }
     }
 }

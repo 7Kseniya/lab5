@@ -26,9 +26,10 @@ public class RemoveGreaterKey extends Command{
             if(args.length < 1) throw new ArrayIndexOutOfBoundsException();
             Integer id = Integer.parseInt(Arrays.toString(args));
             collectionManager.removeGreater(id);
-            IOHandler.println("element removed");
         } catch (NumberOfArgsException e) {
-            IOHandler.println("incorrect amount of args");
+            IOHandler.println(ANSI_RED + "incorrect amount of args" + ANSI_RESET);
+        } catch (NumberFormatException e){
+            IOHandler.println(ANSI_RED + "number format error" + ANSI_RESET);
         }
     }
 }
