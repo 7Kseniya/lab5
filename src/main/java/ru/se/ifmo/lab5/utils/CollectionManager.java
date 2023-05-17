@@ -170,7 +170,7 @@ public class CollectionManager{
      * save collection to file
      */
     public void save(){
-        String path = "file.csv";
+        String path = "collection.csv";
         File outputFile = new File(path);
         try {
             StringBuilder csv = new StringBuilder();

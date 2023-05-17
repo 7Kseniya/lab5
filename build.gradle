@@ -1,10 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
-
+mainClassName = "ru.se.ifmo.lab5.Main"
 repositories {
     mavenCentral()
 }
@@ -19,4 +20,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+run {
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
 }
