@@ -172,9 +172,8 @@ public class CollectionManager{
     /**
      * save collection to file
      */
-    public void save(){
-        String path = "collection.csv";
-        File outputFile = new File(path);
+    public void save(String fileName){
+        File outputFile = new File(fileName);
         try {
             StringBuilder csv = new StringBuilder();
             for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
@@ -229,20 +228,4 @@ public class CollectionManager{
             IOHandler.println("incorrect amount of fields");
         }
     }*/
-    public void getFields() {
-        Field[] fields = spaceMarineCollection.getClass().getDeclaredFields();
-        StringBuilder sb = new StringBuilder();
-        for (Field field : fields) {
-            sb.append(field.getName()).append(", ");
-        }
-        if (sb.length() > 0) {
-            sb.setLength(sb.length() - 2);
-            IOHandler.println("Fields: " + sb.toString());
-        } else {
-            IOHandler.println("No fields found");
-        }
-    }
-
-
-
 }
