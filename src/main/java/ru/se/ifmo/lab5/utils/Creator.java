@@ -19,16 +19,6 @@ public class Creator {
 
     InputStreamReader reader = new InputStreamReader(System.in);
     BufferedReader bufferedReader = new BufferedReader(reader);
-    public void createSpaceMarine(){
-        createDate();
-        createName();
-        createCoordinates();
-        createHealth();
-        createLoyal();
-        chooseAstarters();
-        chooseMeleeWeapon();
-        createChapter();
-    }
 
     /**
      * throw IncorrectValueException if the values don't fit the constraints
@@ -63,20 +53,19 @@ public class Creator {
             x = Float.parseFloat(bufferedReader.readLine().trim());
             IOHandler.println(ANSI_BLUE + "y = " + ANSI_RESET);
             y = Long.parseLong(bufferedReader.readLine().trim());
-            if(x>345 || y<-975) throw new InvalidValueException();
+            if(x<345 || y<-975) throw new InvalidValueException();
             coordinates = new Coordinates(x, y);
         } catch (NumberFormatException | IOException e) {
             IOHandler.println(ANSI_RED + "invalid data format" + ANSI_RESET);
             coordinates = createCoordinates();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "[x] must be less than 345 and [y] must be over -975" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "[x] must be over 345 and [y] must be over -975" + ANSI_RESET);
             coordinates = createCoordinates();
         }
         return coordinates;
     }
 
     //ISO-8601 calendar system: 2007-12-03T10:15:30+01:00 Europe/Paris
-
     public ZonedDateTime createDate() {
         ZonedDateTime creationDate;
         try {

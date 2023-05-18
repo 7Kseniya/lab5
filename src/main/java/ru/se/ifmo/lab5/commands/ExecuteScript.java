@@ -29,7 +29,7 @@ public class ExecuteScript extends Command implements Serializable {
     public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         if(args[0].isEmpty()) IOHandler.println(ANSI_RED + "write correct filename" + ANSI_RESET);
 
-        File scriptFile = new File(args[0]);
+        File scriptFile = new File(args[0].trim());
         if (!scriptFile.exists() || !scriptFile.isFile()) {
             IOHandler.println(ANSI_RED + "Error: script file does not exist or is not a regular file" + ANSI_RESET);
         }else if(scriptFile.exists() && !scriptFile.canRead()){

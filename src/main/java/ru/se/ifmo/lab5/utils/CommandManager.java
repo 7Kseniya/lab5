@@ -12,7 +12,6 @@ import java.util.*;
 public class CommandManager {
     public static HashMap<String, Command> commandMap = new HashMap<>();
     private PriorityQueue<String> commandHistory;
-
     public CommandManager(PriorityQueue<String> commandHistory) {
         this.commandHistory = commandHistory;
     }
@@ -25,8 +24,6 @@ public class CommandManager {
         List<Class<? extends Command>> commands = new ArrayList<>();
         String packageName = "ru.se.ifmo.lab5.commands";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-
-
         try {
             Enumeration<URL> resources = classLoader.getResources(packageName.replace(".", "/"));
             while (resources.hasMoreElements()) {
@@ -55,8 +52,6 @@ public class CommandManager {
 
         return commands;
     }
-
-
     public void getCommandInstance(){
         List<Class<? extends Command>> commandClasses = getCommandClasses();
 
@@ -74,9 +69,6 @@ public class CommandManager {
         return commandMap.containsKey(commandName);
     }
 
-    public Collection<Command> getAllCommands() {
-        return commandMap.values();
-    }
     public void executeCommand(CollectionManager collectionManager, CommandManager commandManager, String[] args, BufferedReader reader){
         while (true) {
             try {
