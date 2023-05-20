@@ -34,7 +34,7 @@ public class FileManager {
                     float x = Float.parseFloat(fields[2].trim());
                     long y = Long.parseLong(fields[3].trim());
                     int health = Integer.parseInt(fields[4].trim());
-                    boolean loyal = Boolean.parseBoolean(fields[5].trim().toUpperCase());
+                    boolean loyal = Boolean.parseBoolean(fields[5].trim().toLowerCase());
                     String category = fields[6].trim().toUpperCase();
                     String weapon = fields[7].trim().toUpperCase();
                     String chapterName = fields[8].strip();
@@ -51,7 +51,6 @@ public class FileManager {
                                 MeleeWeapon.valueOf(weapon),
                                 new Chapter(chapterName, marinesCount, world));
                         collectionManager.getSpaceMarineCollection().put(id, spaceMarine);
-
                         IOHandler.println(ANSI_BLUE + "collection size: " + collectionManager.getSize() + ANSI_RESET);
                         IOHandler.println(ANSI_GREEN + "collection successfully loaded" + ANSI_RESET);
                     }else IOHandler.println(ANSI_RED + "id must be over 0" + ANSI_RESET);

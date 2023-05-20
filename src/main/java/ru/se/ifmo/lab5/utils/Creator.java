@@ -93,7 +93,7 @@ public class Creator {
     public AstartesCategory chooseAstarters(){
         AstartesCategory category;
         try{
-            IOHandler.println(ANSI_BLUE + "choose astarters category from the list:" + ANSI_RESET+
+            IOHandler.println(ANSI_BLUE + "choose [astarters category] from the list:" + ANSI_RESET+
                     "\nSCOUT \nLIBRARIAN \nCHAPLAIN");
             category = AstartesCategory.valueOf(bufferedReader.readLine().trim().toUpperCase());
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public class Creator {
     public MeleeWeapon chooseMeleeWeapon(){
         MeleeWeapon meleeWeapon;
         try{
-            IOHandler.println(ANSI_BLUE + "choose melee weapon from the list:" + ANSI_RESET+
+            IOHandler.println(ANSI_BLUE + "choose [melee weapon] from the list:" + ANSI_RESET+
                     "\nCHAIN_SWORD \nCHAIN_AXE \nMANREAPER \nLIGHTING_CLAW \nPOWER_BLADE");
             meleeWeapon = MeleeWeapon.valueOf(bufferedReader.readLine().trim().toUpperCase());
         } catch (IllegalArgumentException e) {
@@ -137,12 +137,12 @@ public class Creator {
         try{
             IOHandler.println(ANSI_BLUE + "enter health value: " + ANSI_RESET);
             health = parseInt(bufferedReader.readLine().trim());
-            if(health <=0) throw new InvalidValueException();
-        } catch (IOException e) {
-            IOHandler.println(ANSI_RED + "" + ANSI_RESET);
+            if(health <=0 | health.toString().isEmpty()) throw new InvalidValueException();
+        } catch (NumberFormatException | IOException e) {
+            IOHandler.println(ANSI_RED + "invalid data format \n[health] must be number" + ANSI_RESET);
             health = createHealth();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "'health' must be over 0" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "[health] must be over 0 and not null" + ANSI_RESET);
             health = createHealth();
         }
         return health;
@@ -158,9 +158,9 @@ public class Creator {
         try{
             IOHandler.println(ANSI_BLUE + "enter loyal value [true/false]: " + ANSI_RESET);
             loyal = Boolean.parseBoolean(bufferedReader.readLine().trim().toUpperCase());
-            if(!(loyal.equals(Boolean.TRUE) | loyal.equals(Boolean.FALSE))) throw new InvalidValueException();
+            if(!(loyal.toString().equals("true") | loyal.toString().equals("false"))) throw new InvalidValueException();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "'loyal' can't be null " + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "[loyal] can't be null " + ANSI_RESET);
             loyal = createLoyal();
         } catch (IOException e) {
             IOHandler.println(ANSI_RED + "smth went wrong" + ANSI_RESET);
@@ -186,13 +186,13 @@ public class Creator {
             marinesCount = parseInt(bufferedReader.readLine().trim());
             IOHandler.println(ANSI_BLUE + "enter chapter world: " + ANSI_RESET);
             world = bufferedReader.readLine().trim();
-            if(name.isBlank() | (marinesCount < 0) | marinesCount > 1000) throw new InvalidValueException();
+            if(name.isEmpty() | world.isEmpty()| (marinesCount < 0) | marinesCount > 1000) throw new InvalidValueException();
             chapter = new Chapter(name, marinesCount, world);
         } catch (NumberFormatException | IOException e) {
-            IOHandler.println(ANSI_RED + "invalid data format: 'marines count' must be integer " + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "invalid data format: [marines count] must be integer " + ANSI_RESET);
             chapter = createChapter();
         } catch (InvalidValueException e) {
-            IOHandler.println(ANSI_RED + "'name' and 'world' can't be empty " +
+            IOHandler.println(ANSI_RED + "[name] and [world] can't be empty " +
                     "\n'marines count' must be over 0 and no more then 1000" + ANSI_RESET);
             chapter = createChapter();
         }

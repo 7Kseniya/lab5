@@ -1,5 +1,6 @@
 package ru.se.ifmo.lab5.utils;
 
+import ru.se.ifmo.lab5.data.MeleeWeapon;
 import ru.se.ifmo.lab5.data.SpaceMarine;
 import ru.se.ifmo.lab5.exceptions.InvalidCollectionElemId;
 import ru.se.ifmo.lab5.exceptions.InvalidValueException;
@@ -11,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * class describes the commands associated with the collection
@@ -166,6 +168,30 @@ public class CollectionManager{
                 .sorted(Comparator.comparingInt(Map.Entry::getKey))
                 .forEach(entry -> IOHandler.println(entry.getValue()));
     }
+
+    /**
+     * get collection element with max value of melee weapon
+     */
+    public void maxByMeleeWeapon() {
+        if (spaceMarineCollection.isEmpty()) {
+            IOHandler.println("collection is empty");
+        }
+        MeleeWeapon maxMeleeWeapon = null;
+        for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
+            if (maxMeleeWeapon == null || spaceMarine.getMeleeWeapon().compareTo(maxMeleeWeapon) > 0) {
+                maxMeleeWeapon = spaceMarine.getMeleeWeapon();
+            }
+        }
+        SpaceMarine marine = null;
+        for (SpaceMarine spaceMarine : spaceMarineCollection.values()) {
+            if (spaceMarine.getMeleeWeapon().equals(maxMeleeWeapon)) {
+                marine = spaceMarine;
+                break;
+            }
+        }
+        IOHandler.println(marine);
+    }
+
 
     /**
      * save collection to file

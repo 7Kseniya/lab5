@@ -35,15 +35,15 @@ public class ExecuteScript extends Command implements Serializable {
         }else if(scriptFile.exists() && !scriptFile.canRead()){
             IOHandler.println(ANSI_RED + "no permission to read this file" + ANSI_RESET);
         }else{
+            if(commandManager.getExecutedScripts().contains(String.valueOf(scriptFile))){
+                IOHandler.println(ANSI_RED + "file contains command " + getCommandName() + ANSI_RESET);
+                return;
+            }else commandManager.addExecutedScript(String.valueOf(scriptFile));
             try(BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(scriptFile)))) {
                 String[] line;
                 String currentLine;
                 while ((currentLine = reader.readLine()) != null) {
                     line = currentLine.toLowerCase().split("\\s+");
-                    if (Arrays.toString(line).startsWith("execute_script")) {
-                        IOHandler.println(ANSI_RED + "file contains command " + getCommandName() + ANSI_RESET);
-                        return;
-                    }
                     try {
                         Command command = commandMap.get(line[0]);
                         if (command == null) {
@@ -62,6 +62,7 @@ public class ExecuteScript extends Command implements Serializable {
                         e.printStackTrace();
                     }
                 }
+                commandManager.clearExecutedScripts();
             } catch (IOException e) {
                 IOHandler.println(" ");
             } catch (NullPointerException e){

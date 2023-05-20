@@ -4,8 +4,10 @@ import ru.se.ifmo.lab5.data.SpaceMarine;
 
 import java.io.*;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 public class InputManager {
     public static final String ANSI_BLUE = "\u001B[34m";
@@ -16,7 +18,8 @@ public class InputManager {
     public static void start(String[] args) {
         FileManager fileManager = new FileManager();
         PriorityQueue<String> commandHistory = new PriorityQueue<>();
-        CommandManager commandManager = new CommandManager(commandHistory);
+        Set<String> executedScripts = new HashSet<>();
+        CommandManager commandManager = new CommandManager(executedScripts, commandHistory);
         LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection = new LinkedHashMap<>();
         CollectionManager collectionManager = new CollectionManager(spaceMarineCollection, ZonedDateTime.now());
         fileManager.inputFile(collectionManager, args);

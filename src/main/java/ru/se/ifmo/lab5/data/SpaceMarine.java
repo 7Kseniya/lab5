@@ -1,7 +1,10 @@
 package ru.se.ifmo.lab5.data;
 
+import ru.se.ifmo.lab5.utils.IOHandler;
+
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class SpaceMarine implements Comparable<SpaceMarine>{
@@ -168,8 +171,6 @@ public class SpaceMarine implements Comparable<SpaceMarine>{
                 chapter.getWorld()
         };
     }
-
-
 }
 
 

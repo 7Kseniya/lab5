@@ -12,8 +12,11 @@ import java.util.*;
 public class CommandManager {
     public static HashMap<String, Command> commandMap = new HashMap<>();
     private PriorityQueue<String> commandHistory;
-    public CommandManager(PriorityQueue<String> commandHistory) {
+    private Set<String> executedScripts;
+
+    public CommandManager(Set<String> executedScripts, PriorityQueue<String> commandHistory) {
         this.commandHistory = commandHistory;
+        this.executedScripts = executedScripts;
     }
 
     /**
@@ -107,5 +110,20 @@ public class CommandManager {
         if (commandHistory.size() == 11) commandHistory.peek();
         commandHistory.add(command);
     }
+
+    public Set<String> getExecutedScripts() {
+        return executedScripts;
+    }
+
+    public void addExecutedScript(String script){
+        executedScripts.add(script);
+    }
+    public void clearExecutedScripts(){
+        executedScripts.clear();
+    }
+    public void contains(String script){
+        executedScripts.contains(script);
+    }
+
 
 }
