@@ -18,17 +18,17 @@ public class Chapter {
         if(!(name.isBlank())){
             this.name = name;
         }else{
-            IOHandler.println("incorrect value of 'name'");
+            IOHandler.println("incorrect [name] value");
         }
         if(!(marinesCount == null)){
             this.marinesCount = marinesCount;
         }else{
-            IOHandler.println("param 'marine count is null");
+            IOHandler.println("param [marine count] is null");
         }
         if(!(world == null)){
             this.world = world;
         }else{
-            IOHandler.println("incorrect value of param 'world");
+            IOHandler.println("param [world] is null");
         }
     }
 

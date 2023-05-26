@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[SAVE] save modification">
+    <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[MODIFY] deleted csv files and saved collection">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collection.csv" beforeDir="false" afterPath="$PROJECT_DIR$/collection.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script" beforeDir="false" afterPath="$PROJECT_DIR$/script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script2" beforeDir="false" afterPath="$PROJECT_DIR$/script2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Chapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Chapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +68,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
@@ -141,8 +151,17 @@
       <workItem from="1680209924931" duration="49736000" />
       <workItem from="1680699986910" duration="29918000" />
       <workItem from="1681887713004" duration="3382000" />
-      <workItem from="1682163094924" duration="140406000" />
+      <workItem from="1682163094924" duration="150997000" />
+      <workItem from="1685019581812" duration="10549000" />
     </task>
+    <task id="LOCAL-00001" summary="[MODIFY] deleted csv files and saved collection">
+      <created>1684709524167</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684709524167</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[SAVE] save modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="[SAVE] save modification" />
+    <MESSAGE value="[MODIFY] deleted csv files and saved collection" />
+    <option name="LAST_COMMIT_MESSAGE" value="[MODIFY] deleted csv files and saved collection" />
   </component>
 </project>

@@ -39,9 +39,6 @@ public class InputManager {
 
             } catch (IOException e) {
                 IOHandler.println("there is no such command or your input is incorrect \nenter command" + ANSI_BLUE + "help" + ANSI_RESET + "to view available commands" );
-//            } catch (CommandNotFoundException e) {
-//                IOHandler.println("command not found \nenter command 'help' to see available list of commands");
-//                break;
             }
         }
     }

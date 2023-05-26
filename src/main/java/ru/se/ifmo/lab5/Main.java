@@ -8,7 +8,6 @@ public class Main {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_BLUE = "\u001B[34m";
 
-
     public static void main(String[] args) throws IOException {
         System.out.println("if you need a help, use command " + ANSI_BLUE + "help" + ANSI_RESET);
         InputManager.start(args);

@@ -1,13 +1,19 @@
 plugins {
     id 'java'
     id 'application'
-}
+    id("com.github.johnrengelman.shadow") version "7.1.0"
 
+}
 group 'org.example'
 version '1.0-SNAPSHOT'
 mainClassName = "ru.se.ifmo.lab5.Main"
 repositories {
     mavenCentral()
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.se.ifmo.lab5.Main'
+    }
 }
 
 dependencies {
@@ -24,4 +30,10 @@ test {
 run {
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
+}
+tasks.named('jar') {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': project.version)
+    }
 }

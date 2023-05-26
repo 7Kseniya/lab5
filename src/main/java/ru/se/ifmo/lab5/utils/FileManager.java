@@ -28,7 +28,8 @@ public class FileManager {
             try (CSVReader csvReader = new CSVReader(new FileReader(fileName))) {
                 //String[] headers = csvReader.readNext();
                 String[] fields;
-                while ((fields = csvReader.readNext()) != null) {
+
+                while ((fields = csvReader.readNext()) != null ) {
                     int id = Integer.parseInt(fields[0].trim());
                     String name = fields[1].strip();
                     float x = Float.parseFloat(fields[2].trim());
@@ -41,7 +42,7 @@ public class FileManager {
                     int marinesCount = Integer.parseInt(fields[9].trim());
                     String world = fields[10].trim();
 
-                    if(id > 0){
+                    if((id > 0) && (x>345 && y>-975) && (health>0) && (marinesCount > 0) && (marinesCount < 1000) && !(name.isEmpty()||chapterName.isEmpty()||world.isEmpty())) {
                         SpaceMarine spaceMarine = new SpaceMarine(
                                 id, name,
                                 new Coordinates(x, y),
@@ -53,11 +54,9 @@ public class FileManager {
                         collectionManager.getSpaceMarineCollection().put(id, spaceMarine);
                         IOHandler.println(ANSI_BLUE + "collection size: " + collectionManager.getSize() + ANSI_RESET);
                         IOHandler.println(ANSI_GREEN + "collection successfully loaded" + ANSI_RESET);
-                    }else IOHandler.println(ANSI_RED + "id must be over 0" + ANSI_RESET);
+                    }else IOHandler.println(ANSI_RED + "invalid data format \ncollection not loaded" + ANSI_RESET);
                 }
             }
-
-
         } catch (FileNotFoundException e) {
             IOHandler.println(ANSI_RED + "file " + args[0] + "not found" + ANSI_RESET);
         } catch (IOException | CsvValidationException e) {

@@ -2,9 +2,8 @@ package ru.se.ifmo.lab5.utils;
 
 import ru.se.ifmo.lab5.data.*;
 import ru.se.ifmo.lab5.exceptions.InvalidValueException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import static java.lang.Integer.*;
@@ -17,8 +16,15 @@ public class Creator {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
 
-    InputStreamReader reader = new InputStreamReader(System.in);
-    BufferedReader bufferedReader = new BufferedReader(reader);
+    private BufferedReader bufferedReader;
+    public Creator() {
+        InputStreamReader reader = new InputStreamReader(System.in);
+        bufferedReader = new BufferedReader(reader);
+    }
+    public Creator(String filename) throws FileNotFoundException {
+        FileReader fileReader = new FileReader(filename);
+        bufferedReader = new BufferedReader(fileReader);
+    }
 
     /**
      * throw IncorrectValueException if the values don't fit the constraints

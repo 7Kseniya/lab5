@@ -86,10 +86,10 @@ public class CommandManager {
                         command.execute(collectionManager, commandManager, args);
                     }
                     addToHistory(command.getCommandName());
+                    IOHandler.print(">> ");
                 }
             } catch (Exception e) {
                 IOHandler.println("incorrect command parameters \ntry again\n" + e.getMessage());
-                e.printStackTrace();
             }
             try {
                 args = reader.readLine().toLowerCase().split(" ");
