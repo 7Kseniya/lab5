@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[MODIFY] deleted csv files and saved collection">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collection.csv" beforeDir="false" afterPath="$PROJECT_DIR$/collection.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script2" beforeDir="false" afterPath="$PROJECT_DIR$/script2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Chapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/data/Chapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/Creator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/InputManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +141,7 @@
       <workItem from="1680699986910" duration="29918000" />
       <workItem from="1681887713004" duration="3382000" />
       <workItem from="1682163094924" duration="150997000" />
-      <workItem from="1685019581812" duration="10549000" />
+      <workItem from="1685019581812" duration="11604000" />
     </task>
     <task id="LOCAL-00001" summary="[MODIFY] deleted csv files and saved collection">
       <created>1684709524167</created>

@@ -1,5 +1,6 @@
 package ru.se.ifmo.lab5.utils;
 
+import com.opencsv.exceptions.CsvValidationException;
 import ru.se.ifmo.lab5.data.SpaceMarine;
 
 import java.io.*;
@@ -13,9 +14,8 @@ public class InputManager {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
 
-    public static void start(String[] args) {
+    public static void start(String[] args) throws CsvValidationException{
         FileManager fileManager = new FileManager();
         PriorityQueue<String> commandHistory = new PriorityQueue<>();
         Set<String> executedScripts = new HashSet<>();
