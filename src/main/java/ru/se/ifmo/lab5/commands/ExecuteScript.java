@@ -53,7 +53,7 @@ public class ExecuteScript extends Command implements Serializable {
                         if (command == null) {
                             IOHandler.println("unknown command");
                         } else {
-                            IOHandler.println(Arrays.copyOfRange(line, 1, line.length));
+                            //IOHandler.println(Arrays.copyOfRange(line, 1, line.length));
                             if (line.length > 1) {
                                 command.execute(collectionManager, commandManager, Arrays.copyOfRange(line, 1, line.length));
                             } else if (line[0].equals("insert")){
@@ -87,9 +87,8 @@ public class ExecuteScript extends Command implements Serializable {
                                         }else IOHandler.println(ANSI_RED + "invalid data format \ncollection not loaded" + ANSI_RESET);
                                     }
                                 } catch (CsvValidationException e) {
-                                    IOHandler.println(ANSI_RED + "error reading fields: " + e.getMessage() + ANSI_RESET);
+                                    IOHandler.println(ANSI_RED + "error reading fields: " + ANSI_RESET);
                                 }
-
                             }
                             else {
                                 command.execute(collectionManager, commandManager, line);
@@ -102,7 +101,7 @@ public class ExecuteScript extends Command implements Serializable {
                 }
                 commandManager.clearExecutedScripts();
             } catch (IOException e) {
-                IOHandler.println(ANSI_RED + "error reading file: " + e.getMessage() + ANSI_RESET);
+                IOHandler.println(ANSI_RED + "error reading file: " + ANSI_RESET);
             } catch (NullPointerException e){
                 IOHandler.println(ANSI_RED + "script file is empty" + ANSI_RESET);
             }

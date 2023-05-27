@@ -21,7 +21,7 @@ public class Help extends Command {
     public void execute(CollectionManager collectionManager, CommandManager commandManager, String[] args) {
         try {
             if ((args.length == 0 | args.toString().trim().isEmpty())) throw new NumberOfArgsException();
-            IOHandler.println(commandMap.values());
+            //.IOHandler.println(commandMap.values());
             for (Command command : commandMap.values()){
                 IOHandler.println(ANSI_BLUE + command.getCommandName() + ANSI_RESET+ "::" + command.getDescription());
             }

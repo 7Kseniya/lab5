@@ -1,13 +1,16 @@
 package ru.se.ifmo.lab5.utils;
 
+import com.google.common.reflect.ClassPath;
+import org.reflections.Reflections;
 import ru.se.ifmo.lab5.commands.Command;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
+import com.google.common.reflect.ClassPath.ClassInfo;
 
 public class CommandManager {
     public static HashMap<String, Command> commandMap = new HashMap<>();
@@ -24,6 +27,25 @@ public class CommandManager {
      * @return list of command classes
      */
     public static List<Class<? extends Command>> getCommandClasses() {
+        List<Class<? extends Command>> commands = new ArrayList<>();
+        String packageName = "ru.se.ifmo.lab5.commands";
+        try {
+            List<Class<?>> classes = ClassPath.from(ClassLoader.getSystemClassLoader()).getTopLevelClasses(packageName)
+                    .stream()
+                    .map(ClassInfo::load)
+                    .collect(Collectors.toList());
+            for (Class<?> clazz : classes) {
+                if (Command.class.isAssignableFrom(clazz)) {
+                    commands.add(clazz.asSubclass(Command.class));
+                }
+            }
+        } catch (IOException e) {
+            IOHandler.println("parse package error");
+        }
+        return commands;
+    }
+
+/*    public static List<Class<? extends Command>> getCommandClasses() {
         List<Class<? extends Command>> commands = new ArrayList<>();
         String packageName = "ru.se.ifmo.lab5.commands";
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -54,7 +76,8 @@ public class CommandManager {
         }
 
         return commands;
-    }
+    }*/
+
     public void getCommandInstance(){
         List<Class<? extends Command>> commandClasses = getCommandClasses();
 
@@ -79,7 +102,7 @@ public class CommandManager {
                 if (command == null) {
                     IOHandler.println("unknown command");
                 } else {
-                    IOHandler.println(Arrays.copyOfRange(args, 1, args.length));
+                    //IOHandler.println(Arrays.copyOfRange(args, 1, args.length));
                     if (args.length > 1){
                         command.execute(collectionManager, commandManager, Arrays.copyOfRange(args, 1, args.length));
                     }else{
@@ -89,7 +112,7 @@ public class CommandManager {
                     IOHandler.print(">> ");
                 }
             } catch (Exception e) {
-                IOHandler.println("incorrect command parameters \ntry again\n" + e.getMessage());
+                IOHandler.println("incorrect command parameters \ntry again\n");
             }
             try {
                 args = reader.readLine().toLowerCase().split(" ");
