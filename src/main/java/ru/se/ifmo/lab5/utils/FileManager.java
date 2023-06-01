@@ -3,11 +3,8 @@ package ru.se.ifmo.lab5.utils;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import ru.se.ifmo.lab5.data.*;
-import ru.se.ifmo.lab5.exceptions.InvalidValueException;
-
 import java.io.*;
 import java.time.ZonedDateTime;
-import java.util.LinkedHashMap;
 
 /**
  * class for reading csv file

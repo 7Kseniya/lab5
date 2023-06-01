@@ -5,8 +5,6 @@ import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
-import java.util.Arrays;
-
 public class FilterByHealth extends Command{
     CommandManager commandManager;
     @Override

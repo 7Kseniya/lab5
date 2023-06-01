@@ -6,7 +6,6 @@ import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;
 
 public class PrintAscending extends Command{
-    CommandManager commandManager;
     @Override
     public String getCommandName() {
         return "print_ascending";

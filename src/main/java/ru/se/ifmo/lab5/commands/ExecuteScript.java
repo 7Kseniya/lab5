@@ -4,7 +4,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import ru.se.ifmo.lab5.data.*;
 import ru.se.ifmo.lab5.exceptions.NumberOfArgsException;
-import ru.se.ifmo.lab5.exceptions.RecursiveScriptException;
 import ru.se.ifmo.lab5.utils.CollectionManager;
 import ru.se.ifmo.lab5.utils.CommandManager;
 import ru.se.ifmo.lab5.utils.IOHandler;

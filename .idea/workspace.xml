@@ -9,17 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[MODIFY] deleted csv files and saved collection">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab5_update_main_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="2b25b50a-92f7-4df6-9850-33b74ab32bb9" name="Changes" comment="[MODIFY] rewritten package parser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collection.csv" beforeDir="false" afterPath="$PROJECT_DIR$/collection.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.csv" beforeDir="false" afterPath="$PROJECT_DIR$/file.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Clear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Clear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/ExecuteScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Exit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/Help.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/FilterByHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/FilterByHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/PrintAscending.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/commands/PrintAscending.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CollectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/se/ifmo/lab5/utils/FileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +157,7 @@
       <workItem from="1680699986910" duration="29918000" />
       <workItem from="1681887713004" duration="3382000" />
       <workItem from="1682163094924" duration="150997000" />
-      <workItem from="1685019581812" duration="30255000" />
+      <workItem from="1685019581812" duration="32542000" />
     </task>
     <task id="LOCAL-00001" summary="[MODIFY] deleted csv files and saved collection">
       <created>1684709524167</created>
@@ -168,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684709524167</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[MODIFY] rewritten package parser">
+      <created>1685198076328</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685198076328</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +183,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[SAVE] save modification" />
     <MESSAGE value="[MODIFY] deleted csv files and saved collection" />
-    <option name="LAST_COMMIT_MESSAGE" value="[MODIFY] deleted csv files and saved collection" />
+    <MESSAGE value="[MODIFY] rewritten package parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="[MODIFY] rewritten package parser" />
   </component>
 </project>
