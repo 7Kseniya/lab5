@@ -10,7 +10,13 @@ import java.util.stream.Collectors;
 import com.google.common.reflect.ClassPath.ClassInfo;
 
 public class CommandManager {
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_CYAN = "\u001B[36m";
     public static HashMap<String, Command> commandMap = new HashMap<>();
+
     private PriorityQueue<String> commandHistory;
     private Set<String> executedScripts;
 
@@ -37,7 +43,7 @@ public class CommandManager {
                 }
             }
         } catch (IOException e) {
-            IOHandler.println("parse package error");
+            IOHandler.println(ANSI_RED + "parse package error" + ANSI_RESET);
         }
         return commands;
     }
@@ -64,7 +70,7 @@ public class CommandManager {
             try {
                 Command command = commandMap.get(args[0]);
                 if (command == null) {
-                    IOHandler.println("unknown command");
+                    IOHandler.println(ANSI_RED + "unknown command" + ANSI_RESET);
                 } else {
                     //IOHandler.println(Arrays.copyOfRange(args, 1, args.length));
                     if (args.length > 1){
@@ -73,15 +79,15 @@ public class CommandManager {
                         command.execute(collectionManager, commandManager, args);
                     }
                     addToHistory(command.getCommandName());
-                    IOHandler.print(">> ");
+                    IOHandler.print(ANSI_BLUE + ">> " + ANSI_RESET);
                 }
             } catch (Exception e) {
-                IOHandler.println("incorrect command parameters \ntry again\n");
+                IOHandler.println(ANSI_RED + "incorrect command parameters \ntry again\n" + ANSI_RESET);
             }
             try {
                 args = reader.readLine().toLowerCase().split(" ");
             } catch (IOException e) {
-                IOHandler.println("incorrect input");
+                IOHandler.println(ANSI_RED + "incorrect input" + ANSI_RESET);
             }
         }
     }

@@ -61,7 +61,7 @@ public class FileManager {
         } catch (IllegalArgumentException e) {
             IOHandler.println(ANSI_RED + "error parsing CSV data: " + e.getMessage() + ANSI_RESET);
         } catch (ArrayIndexOutOfBoundsException e) {
-            IOHandler.println("array index out of bounds");
+            IOHandler.println(ANSI_RED + "array index out of bounds" + ANSI_RESET);
         }
     }
 }

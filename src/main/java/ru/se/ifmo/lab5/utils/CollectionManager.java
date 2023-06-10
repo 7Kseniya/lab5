@@ -21,6 +21,10 @@ public class CollectionManager{
     private LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection;
     private final ZonedDateTime creationDate;
 
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m";
+
     public CollectionManager(LinkedHashMap<Integer, SpaceMarine> spaceMarineCollection, ZonedDateTime creationDate) {
         this.creationDate = ZonedDateTime.now();
         this.spaceMarineCollection = spaceMarineCollection;
@@ -45,7 +49,9 @@ public class CollectionManager{
      */
     public void show(){
         for(SpaceMarine spaceMarine : spaceMarineCollection.values()){
-            IOHandler.println(spaceMarine.toString());
+            if(getSpaceMarineCollection().isEmpty()){
+                IOHandler.println(ANSI_RED + "collection is empty" + ANSI_RESET);
+            }else IOHandler.println(spaceMarine.toString());
         }
     }
     /**
@@ -56,16 +62,22 @@ public class CollectionManager{
         for(SpaceMarine spaceMarine : spaceMarineCollection.values()){
             try{
                 if(id == null) throw new NullPointerException();
+                if(getSpaceMarineCollection().isEmpty()) IOHandler.println(ANSI_RED + "collection is empty" + ANSI_RESET);
                 if(spaceMarine.getId().equals(id)){
-                    this.spaceMarineCollection.replace(id, spaceMarine);
-                    IOHandler.println("collection element updated successfully");
-                }else{
+                    removeById(id);
+                    Creator creator = new Creator();
+                    SpaceMarine marine = new SpaceMarine(id, creator.createName(), creator.createCoordinates(),
+                            creator.createDate(), creator.createHealth(), creator.createLoyal(), creator.chooseAstarters(), creator.chooseMeleeWeapon(), creator.createChapter());
+                    getSpaceMarineCollection().put(id, marine);
+                    this.spaceMarineCollection.replace(id, marine);
+                    IOHandler.println(ANSI_GREEN + "collection element updated successfully" + ANSI_RESET);
+                } else{
                     throw new InvalidCollectionElemId();
                 }
             }catch (InvalidCollectionElemId e){
-                IOHandler.println("there is no element with that id");
+                IOHandler.println(ANSI_RED + "there is no element with that id" + ANSI_RESET);
             }catch (NullPointerException e){
-                IOHandler.println("specified id is null");
+                IOHandler.println(ANSI_RED + "specified id is null" + ANSI_RESET);
             }
         }
     }
@@ -83,9 +95,9 @@ public class CollectionManager{
                     throw new InvalidCollectionElemId();
                 }
             }catch (InvalidCollectionElemId e){
-                IOHandler.println("there is no element with that id");
+                IOHandler.println(ANSI_RED + "there is no element with that id" + ANSI_RESET);
             }catch (NullPointerException e){
-                IOHandler.println("specified id is null");
+                IOHandler.println(ANSI_RED + "specified id is null" + ANSI_RESET);
             }
         }
     }
@@ -99,14 +111,14 @@ public class CollectionManager{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() > id){
                     this.spaceMarineCollection.remove(id);
-                    IOHandler.println("element removed");
+                    IOHandler.println(ANSI_GREEN + "element removed"+ ANSI_RESET);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
             }catch (InvalidCollectionElemId e){
-                IOHandler.println("there is no element with that id");
+                IOHandler.println(ANSI_RED+ "there is no element with that id" + ANSI_RESET);
             }catch (NullPointerException e){
-                IOHandler.println("specified id is null");
+                IOHandler.println(ANSI_RED + "specified id is null" + ANSI_RESET);
             }
 
         }
@@ -121,14 +133,14 @@ public class CollectionManager{
                 if(id == null) throw new NullPointerException();
                 if(spaceMarine.getId() < id){
                     this.spaceMarineCollection.remove(id);
-                    IOHandler.println("element removed");
+                    IOHandler.println(ANSI_GREEN + "element removed" + ANSI_RESET);
                 }else{
                     throw new InvalidCollectionElemId();
                 }
             }catch (InvalidCollectionElemId e){
-                IOHandler.println("there is no element with that id");
+                IOHandler.println(ANSI_RED + "there is no element with that id" + ANSI_RESET);
             }catch (NullPointerException e){
-                IOHandler.println("specified id is null");
+                IOHandler.println(ANSI_RED + "specified id is null" + ANSI_RESET);
             }
         }
     }
@@ -145,9 +157,9 @@ public class CollectionManager{
                 if(spaceMarine.getHealth().equals(health))
                     IOHandler.println(spaceMarine);
             }catch (NullPointerException e){
-                IOHandler.println("specified health value is null");
+                IOHandler.println(ANSI_RED + "specified health value is null" + ANSI_RESET);
             } catch (InvalidValueException e) {
-                IOHandler.println("'health' must be over 0");
+                IOHandler.println(ANSI_RED + "[health] must be over 0" + ANSI_RESET);
             }
         }
     }
@@ -208,7 +220,7 @@ public class CollectionManager{
             output.write(String.join("", csv).getBytes(StandardCharsets.UTF_8));
             output.close();
         } catch (IOException e){
-            IOHandler.println("unable to save collection to file");
+            IOHandler.println(ANSI_RED + "unable to save collection to file" + ANSI_RESET);
         }
     }
 
