@@ -71,9 +71,7 @@ public class CollectionManager{
                     getSpaceMarineCollection().put(id, marine);
                     this.spaceMarineCollection.replace(id, marine);
                     IOHandler.println(ANSI_GREEN + "collection element updated successfully" + ANSI_RESET);
-                } else{
-                    throw new InvalidCollectionElemId();
-                }
+                } else throw new InvalidCollectionElemId();
             }catch (InvalidCollectionElemId e){
                 IOHandler.println(ANSI_RED + "there is no element with that id" + ANSI_RESET);
             }catch (NullPointerException e){

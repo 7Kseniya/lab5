@@ -2,7 +2,9 @@ package ru.se.ifmo.lab5.commands;
 
 import ru.se.ifmo.lab5.utils.CommandExecutor;
 
-public abstract class Command implements CommandExecutor {
+import java.io.Serializable;
+
+public abstract class Command implements Serializable, CommandExecutor {
    /**
     * colors for output modification
     */

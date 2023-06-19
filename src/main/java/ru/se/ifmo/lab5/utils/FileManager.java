@@ -55,13 +55,13 @@ public class FileManager {
                 }
             }
         } catch (FileNotFoundException e) {
-            IOHandler.println(ANSI_RED + "file " + args[0] + "not found" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "file " + args[0] + " not found" + ANSI_RESET);
         } catch (IOException | CsvValidationException e) {
             IOHandler.println(ANSI_RED + "error reading file: " + e.getMessage() + ANSI_RESET);
         } catch (IllegalArgumentException e) {
             IOHandler.println(ANSI_RED + "error parsing CSV data: " + e.getMessage() + ANSI_RESET);
         } catch (ArrayIndexOutOfBoundsException e) {
-            IOHandler.println(ANSI_RED + "array index out of bounds" + ANSI_RESET);
+            IOHandler.println(ANSI_RED + "" + ANSI_RESET);
         }
     }
 }
